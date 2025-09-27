@@ -1,0 +1,348 @@
+{
+  "MS001_User": [
+    {
+      "UserId": "usr_001",
+      "Email": "taro.yamada@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-15T10:30:00Z",
+      "UpdatedAt": "2024-01-15T10:30:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_002",
+      "Email": "hanako.sato@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-16T14:20:00Z",
+      "UpdatedAt": "2024-01-16T14:20:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_003",
+      "Email": "jiro.tanaka@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-17T09:15:00Z",
+      "UpdatedAt": "2024-01-17T09:15:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_004",
+      "Email": "yuki.watanabe@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-18T16:45:00Z",
+      "UpdatedAt": "2024-01-18T16:45:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_005",
+      "Email": "akira.suzuki@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-19T11:30:00Z",
+      "UpdatedAt": "2024-01-19T11:30:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_006",
+      "Email": "mai.takahashi@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-20T13:20:00Z",
+      "UpdatedAt": "2024-01-20T13:20:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_007",
+      "Email": "kenji.kobayashi@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-21T08:45:00Z",
+      "UpdatedAt": "2024-01-21T08:45:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_008",
+      "Email": "sakura.mori@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-22T15:10:00Z",
+      "UpdatedAt": "2024-01-22T15:10:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_009",
+      "Email": "hiroshi.ito@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-23T12:30:00Z",
+      "UpdatedAt": "2024-01-23T12:30:00Z",
+      "IsActive": true
+    },
+    {
+      "UserId": "usr_010",
+      "Email": "yui.nakamura@example.com",
+      "PasswordHash": "$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4pX7Q3qK3K",
+      "CreatedAt": "2024-01-24T17:25:00Z",
+      "UpdatedAt": "2024-01-24T17:25:00Z",
+      "IsActive": true
+    }
+  ],
+  "MS001_Couple": [
+    {
+      "CoupleId": "cpl_001",
+      "UserId1": "usr_001",
+      "UserId2": "usr_002",
+      "Status": "active",
+      "FormedAt": "2024-01-16T14:30:00Z",
+      "UpdatedAt": "2024-01-16T14:30:00Z"
+    },
+    {
+      "CoupleId": "cpl_002",
+      "UserId1": "usr_003",
+      "UserId2": "usr_004",
+      "Status": "active",
+      "FormedAt": "2024-01-18T17:00:00Z",
+      "UpdatedAt": "2024-01-18T17:00:00Z"
+    },
+    {
+      "CoupleId": "cpl_003",
+      "UserId1": "usr_005",
+      "UserId2": "usr_006",
+      "Status": "active",
+      "FormedAt": "2024-01-20T14:15:00Z",
+      "UpdatedAt": "2024-01-20T14:15:00Z"
+    },
+    {
+      "CoupleId": "cpl_004",
+      "UserId1": "usr_007",
+      "UserId2": "usr_008",
+      "Status": "active",
+      "FormedAt": "2024-01-22T16:20:00Z",
+      "UpdatedAt": "2024-01-22T16:20:00Z"
+    },
+    {
+      "CoupleId": "cpl_005",
+      "UserId1": "usr_009",
+      "UserId2": "usr_010",
+      "Status": "active",
+      "FormedAt": "2024-01-24T18:10:00Z",
+      "UpdatedAt": "2024-01-24T18:10:00Z"
+    },
+    {
+      "CoupleId": "cpl_006",
+      "UserId1": "usr_011",
+      "UserId2": "usr_012",
+      "Status": "active",
+      "FormedAt": "2024-01-25T10:45:00Z",
+      "UpdatedAt": "2024-01-25T10:45:00Z"
+    },
+    {
+      "CoupleId": "cpl_007",
+      "UserId1": "usr_013",
+      "UserId2": "usr_014",
+      "Status": "active",
+      "FormedAt": "2024-01-26T13:30:00Z",
+      "UpdatedAt": "2024-01-26T13:30:00Z"
+    },
+    {
+      "CoupleId": "cpl_008",
+      "UserId1": "usr_015",
+      "UserId2": "usr_016",
+      "Status": "active",
+      "FormedAt": "2024-01-27T11:15:00Z",
+      "UpdatedAt": "2024-01-27T11:15:00Z"
+    },
+    {
+      "CoupleId": "cpl_009",
+      "UserId1": "usr_017",
+      "UserId2": "usr_018",
+      "Status": "active",
+      "FormedAt": "2024-01-28T15:40:00Z",
+      "UpdatedAt": "2024-01-28T15:40:00Z"
+    },
+    {
+      "CoupleId": "cpl_010",
+      "UserId1": "usr_019",
+      "UserId2": "usr_020",
+      "Status": "active",
+      "FormedAt": "2024-01-29T09:25:00Z",
+      "UpdatedAt": "2024-01-29T09:25:00Z"
+    }
+  ],
+  "MS001_UserProfile": [
+    {
+      "ProfileId": "prof_001",
+      "UserId": "usr_001",
+      "Name": "山田太郎",
+      "Age": 28,
+      "Interests": ["映画鑑賞", "カフェ巡り", "読書"],
+      "Preferences": {
+        "dateType": "ロマンチック",
+        "budget": "中程度",
+        "timePreference": "夕方"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "ProfileId": "prof_002",
+      "UserId": "usr_002",
+      "Name": "佐藤花子",
+      "Age": 26,
+      "Interests": ["ショッピング", "スイーツ", "旅行"],
+      "Preferences": {
+        "dateType": "アクティブ",
+        "budget": "高め",
+        "timePreference": "午後"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-16T14:20:00Z"
+    },
+    {
+      "ProfileId": "prof_003",
+      "UserId": "usr_003",
+      "Name": "田中次郎",
+      "Age": 30,
+      "Interests": ["スポーツ", "ゲーム", "料理"],
+      "Preferences": {
+        "dateType": "カジュアル",
+        "budget": "低め",
+        "timePreference": "夜"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "disabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-17T09:15:00Z"
+    },
+    {
+      "ProfileId": "prof_004",
+      "UserId": "usr_004",
+      "Name": "渡辺雪",
+      "Age": 27,
+      "Interests": ["アート", "音楽", "散歩"],
+      "Preferences": {
+        "dateType": "文化的",
+        "budget": "中程度",
+        "timePreference": "午前"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-18T16:45:00Z"
+    },
+    {
+      "ProfileId": "prof_005",
+      "UserId": "usr_005",
+      "Name": "鈴木明",
+      "Age": 29,
+      "Interests": ["写真撮影", "アウトドア", "ワイン"],
+      "Preferences": {
+        "dateType": "冒険的",
+        "budget": "高め",
+        "timePreference": "夕方"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-19T11:30:00Z"
+    },
+    {
+      "ProfileId": "prof_006",
+      "UserId": "usr_006",
+      "Name": "高橋舞",
+      "Age": 25,
+      "Interests": ["ヨガ", "自然", "手作り"],
+      "Preferences": {
+        "dateType": "リラックス",
+        "budget": "中程度",
+        "timePreference": "午後"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-20T13:20:00Z"
+    },
+    {
+      "ProfileId": "prof_007",
+      "UserId": "usr_007",
+      "Name": "小林健二",
+      "Age": 32,
+      "Interests": ["車", "テクノロジー", "投資"],
+      "Preferences": {
+        "dateType": "実用的",
+        "budget": "高め",
+        "timePreference": "夜"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "disabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-21T08:45:00Z"
+    },
+    {
+      "ProfileId": "prof_008",
+      "UserId": "usr_008",
+      "Name": "森さくら",
+      "Age": 24,
+      "Interests": ["ファッション", "美容", "ダンス"],
+      "Preferences": {
+        "dateType": "エレガント",
+        "budget": "高め",
+        "timePreference": "夕方"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-22T15:10:00Z"
+    },
+    {
+      "ProfileId": "prof_009",
+      "UserId": "usr_009",
+      "Name": "伊藤弘",
+      "Age": 31,
+      "Interests": ["読書", "映画", "歴史"],
+      "Preferences": {
+        "dateType": "知的",
+        "budget": "中程度",
+        "timePreference": "午後"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-23T12:30:00Z"
+    },
+    {
+      "ProfileId": "prof_010",
+      "UserId": "usr_010",
+      "Name": "中村結衣",
+      "Age": 23,
+      "Interests": ["音楽", "カラオケ", "友達との時間"],
+      "Preferences": {
+        "dateType": "楽しい",
+        "budget": "低め",
+        "timePreference": "夜"
+      },
+      "PrivacySettings": {
+        "profileVisibility": "couple_only",
+        "locationSharing": "enabled",
+        "dataUsage": "analytics_enabled"
+      },
+      "UpdatedAt": "2024-01-24T17:25:00Z"
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "MS001_UserSession": [
+    {
+      "SessionId": "sess_usr_001",
+      "UserId": "usr_001",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-01-28T10:30:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "iOS 17.2",
+        "browser": "Safari",
+        "ipAddress": "192.168.1.100"
+      },
+      "CreatedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "SessionId": "sess_usr_002",
+      "UserId": "usr_002",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-01-29T14:20:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "Android 14",
+        "browser": "Chrome",
+        "ipAddress": "192.168.1.101"
+      },
+      "CreatedAt": "2024-01-16T14:20:00Z"
+    },
+    {
+      "SessionId": "sess_usr_003",
+      "UserId": "usr_003",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-01-30T09:15:00Z",
+      "DeviceInfo": {
+        "deviceType": "desktop",
+        "os": "Windows 11",
+        "browser": "Chrome",
+        "ipAddress": "192.168.1.102"
+      },
+      "CreatedAt": "2024-01-17T09:15:00Z"
+    },
+    {
+      "SessionId": "sess_usr_004",
+      "UserId": "usr_004",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-01-31T16:45:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "iOS 17.1",
+        "browser": "Safari",
+        "ipAddress": "192.168.1.103"
+      },
+      "CreatedAt": "2024-01-18T16:45:00Z"
+    },
+    {
+      "SessionId": "sess_usr_005",
+      "UserId": "usr_005",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-01T11:30:00Z",
+      "DeviceInfo": {
+        "deviceType": "tablet",
+        "os": "iPadOS 17.2",
+        "browser": "Safari",
+        "ipAddress": "192.168.1.104"
+      },
+      "CreatedAt": "2024-01-19T11:30:00Z"
+    },
+    {
+      "SessionId": "sess_usr_006",
+      "UserId": "usr_006",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-02T13:20:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "Android 13",
+        "browser": "Firefox",
+        "ipAddress": "192.168.1.105"
+      },
+      "CreatedAt": "2024-01-20T13:20:00Z"
+    },
+    {
+      "SessionId": "sess_usr_007",
+      "UserId": "usr_007",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-03T08:45:00Z",
+      "DeviceInfo": {
+        "deviceType": "desktop",
+        "os": "macOS 14.2",
+        "browser": "Safari",
+        "ipAddress": "192.168.1.106"
+      },
+      "CreatedAt": "2024-01-21T08:45:00Z"
+    },
+    {
+      "SessionId": "sess_usr_008",
+      "UserId": "usr_008",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-04T15:10:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "iOS 17.0",
+        "browser": "Safari",
+        "ipAddress": "192.168.1.107"
+      },
+      "CreatedAt": "2024-01-22T15:10:00Z"
+    },
+    {
+      "SessionId": "sess_usr_009",
+      "UserId": "usr_009",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-05T12:30:00Z",
+      "DeviceInfo": {
+        "deviceType": "desktop",
+        "os": "Windows 10",
+        "browser": "Edge",
+        "ipAddress": "192.168.1.108"
+      },
+      "CreatedAt": "2024-01-23T12:30:00Z"
+    },
+    {
+      "SessionId": "sess_usr_010",
+      "UserId": "usr_010",
+      "Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "ExpiresAt": "2024-02-06T17:25:00Z",
+      "DeviceInfo": {
+        "deviceType": "mobile",
+        "os": "Android 12",
+        "browser": "Chrome",
+        "ipAddress": "192.168.1.109"
+      },
+      "CreatedAt": "2024-01-24T17:25:00Z"
+    }
+  ],
+  "MS001_CoupleInvitation": [
+    {
+      "InvitationId": "inv_001",
+      "FromUserId": "usr_001",
+      "ToUserId": "usr_002",
+      "Status": "accepted",
+      "ExpiresAt": "2024-01-23T14:30:00Z",
+      "CreatedAt": "2024-01-16T14:30:00Z"
+    },
+    {
+      "InvitationId": "inv_002",
+      "FromUserId": "usr_003",
+      "ToUserId": "usr_004",
+      "Status": "accepted",
+      "ExpiresAt": "2024-01-25T17:00:00Z",
+      "CreatedAt": "2024-01-18T17:00:00Z"
+    },
+    {
+      "InvitationId": "inv_003",
+      "FromUserId": "usr_005",
+      "ToUserId": "usr_006",
+      "Status": "accepted",
+      "ExpiresAt": "2024-01-27T14:15:00Z",
+      "CreatedAt": "2024-01-20T14:15:00Z"
+    },
+    {
+      "InvitationId": "inv_004",
+      "FromUserId": "usr_007",
+      "ToUserId": "usr_008",
+      "Status": "accepted",
+      "ExpiresAt": "2024-01-29T16:20:00Z",
+      "CreatedAt": "2024-01-22T16:20:00Z"
+    },
+    {
+      "InvitationId": "inv_005",
+      "FromUserId": "usr_009",
+      "ToUserId": "usr_010",
+      "Status": "accepted",
+      "ExpiresAt": "2024-01-31T18:10:00Z",
+      "CreatedAt": "2024-01-24T18:10:00Z"
+    },
+    {
+      "InvitationId": "inv_006",
+      "FromUserId": "usr_011",
+      "ToUserId": "usr_012",
+      "Status": "pending",
+      "ExpiresAt": "2024-02-02T10:45:00Z",
+      "CreatedAt": "2024-01-25T10:45:00Z"
+    },
+    {
+      "InvitationId": "inv_007",
+      "FromUserId": "usr_013",
+      "ToUserId": "usr_014",
+      "Status": "accepted",
+      "ExpiresAt": "2024-02-03T13:30:00Z",
+      "CreatedAt": "2024-01-26T13:30:00Z"
+    },
+    {
+      "InvitationId": "inv_008",
+      "FromUserId": "usr_015",
+      "ToUserId": "usr_016",
+      "Status": "accepted",
+      "ExpiresAt": "2024-02-04T11:15:00Z",
+      "CreatedAt": "2024-01-27T11:15:00Z"
+    },
+    {
+      "InvitationId": "inv_009",
+      "FromUserId": "usr_017",
+      "ToUserId": "usr_018",
+      "Status": "accepted",
+      "ExpiresAt": "2024-02-05T15:40:00Z",
+      "CreatedAt": "2024-01-28T15:40:00Z"
+    },
+    {
+      "InvitationId": "inv_010",
+      "FromUserId": "usr_019",
+      "ToUserId": "usr_020",
+      "Status": "accepted",
+      "ExpiresAt": "2024-02-06T09:25:00Z",
+      "CreatedAt": "2024-01-29T09:25:00Z"
+    }
+  ],
+  "MS002_PlanTemplate": [
+    {
+      "TemplateId": "tpl_001",
+      "Name": "銀座ロマンチックディナー",
+      "Category": "dinner",
+      "Items": [
+        {
+          "type": "restaurant",
+          "name": "銀座レストラン",
+          "duration": 120,
+          "cost": 15000
+        },
+        {
+          "type": "activity",
+          "name": "皇居周辺散歩",
+          "duration": 60,
+          "cost": 0
+        }
+      ],
+      "Popularity": 95,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_002",
+      "Name": "鎌倉歴史散策",
+      "Category": "sightseeing",
+      "Items": [
+        {
+          "type": "sightseeing",
+          "name": "鎌倉大仏",
+          "duration": 90,
+          "cost": 300
+        },
+        {
+          "type": "sightseeing",
+          "name": "鶴岡八幡宮",
+          "duration": 60,
+          "cost": 0
+        },
+        {
+          "type": "cafe",
+          "name": "由比ヶ浜カフェ",
+          "duration": 90,
+          "cost": 2000
+        }
+      ],
+      "Popularity": 88,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_003",
+      "Name": "お台場アクティブデート",
+      "Category": "active",
+      "Items": [
+        {
+          "type": "activity",
+          "name": "サイクリング",
+          "duration": 120,
+          "cost": 3000
+        },
+        {
+          "type": "shopping",
+          "name": "デックス東京ビーチ",
+          "duration": 90,
+          "cost": 5000
+        },
+        {
+          "type": "restaurant",
+          "name": "ランチ",
+          "duration": 90,
+          "cost": 4000
+        }
+      ],
+      "Popularity": 82,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_004",
+      "Name": "六本木アート鑑賞",
+      "Category": "cultural",
+      "Items": [
+        {
+          "type": "museum",
+          "name": "森美術館",
+          "duration": 120,
+          "cost": 2000
+        },
+        {
+          "type": "sightseeing",
+          "name": "六本木ヒルズ展望台",
+          "duration": 90,
+          "cost": 1800
+        }
+      ],
+      "Popularity": 76,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_005",
+      "Name": "代官山カフェ巡り",
+      "Category": "cafe",
+      "Items": [
+        {
+          "type": "cafe",
+          "name": "隠れ家カフェ1",
+          "duration": 60,
+          "cost": 1200
+        },
+        {
+          "type": "cafe",
+          "name": "隠れ家カフェ2",
+          "duration": 60,
+          "cost": 1500
+        },
+        {
+          "type": "cafe",
+          "name": "隠れ家カフェ3",
+          "duration": 60,
+          "cost": 1300
+        }
+      ],
+      "Popularity": 71,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_006",
+      "Name": "箱根温泉旅行",
+      "Category": "travel",
+      "Items": [
+        {
+          "type": "accommodation",
+          "name": "温泉旅館",
+          "duration": 1440,
+          "cost": 40000
+        },
+        {
+          "type": "activity",
+          "name": "芦ノ湖観光",
+          "duration": 120,
+          "cost": 2000
+        }
+      ],
+      "Popularity": 93,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_007",
+      "Name": "浅草寺・スカイツリー観光",
+      "Category": "sightseeing",
+      "Items": [
+        {
+          "type": "sightseeing",
+          "name": "浅草寺",
+          "duration": 90,
+          "cost": 0
+        },
+        {
+          "type": "sightseeing",
+          "name": "東京スカイツリー",
+          "duration": 120,
+          "cost": 2100
+        }
+      ],
+      "Popularity": 89,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_008",
+      "Name": "原宿・表参道ファッションデート",
+      "Category": "shopping",
+      "Items": [
+        {
+          "type": "shopping",
+          "name": "原宿ファッション",
+          "duration": 120,
+          "cost": 8000
+        },
+        {
+          "type": "shopping",
+          "name": "表参道ブランド",
+          "duration": 90,
+          "cost": 12000
+        },
+        {
+          "type": "cafe",
+          "name": "ティータイム",
+          "duration": 60,
+          "cost": 2000
+        }
+      ],
+      "Popularity": 84,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_009",
+      "Name": "新宿御苑ピクニック",
+      "Category": "outdoor",
+      "Items": [
+        {
+          "type": "activity",
+          "name": "ピクニック",
+          "duration": 180,
+          "cost": 3000
+        },
+        {
+          "type": "activity",
+          "name": "庭園散策",
+          "duration": 120,
+          "cost": 500
+        }
+      ],
+      "Popularity": 68,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "TemplateId": "tpl_010",
+      "Name": "渋谷ナイトライフ",
+      "Category": "nightlife",
+      "Items": [
+        {
+          "type": "activity",
+          "name": "クラブ",
+          "duration": 180,
+          "cost": 8000
+        },
+        {
+          "type": "activity",
+          "name": "バー巡り",
+          "duration": 120,
+          "cost": 6000
+        },
+        {
+          "type": "activity",
+          "name": "夜景鑑賞",
+          "duration": 60,
+          "cost": 0
+        }
+      ],
+      "Popularity": 79,
+      "CreatedBy": "system",
+      "CreatedAt": "2024-01-01T00:00:00Z"
+    }
+  ],
+  "MS008_Payment": [
+    {
+      "PaymentId": "pay_001",
+      "SubscriptionId": "sub_001",
+      "Amount": 980,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-16T14:35:00Z",
+      "StripePaymentId": "pi_1234567890abcdef",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "4242",
+        "billingAddress": "東京都渋谷区"
+      }
+    },
+    {
+      "PaymentId": "pay_002",
+      "SubscriptionId": "sub_002",
+      "Amount": 480,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-18T17:05:00Z",
+      "StripePaymentId": "pi_2345678901bcdefg",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "5555",
+        "billingAddress": "東京都新宿区"
+      }
+    },
+    {
+      "PaymentId": "pay_003",
+      "SubscriptionId": "sub_003",
+      "Amount": 980,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-20T14:20:00Z",
+      "StripePaymentId": "pi_3456789012cdefgh",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "3782",
+        "billingAddress": "東京都港区"
+      }
+    },
+    {
+      "PaymentId": "pay_004",
+      "SubscriptionId": "sub_004",
+      "Amount": 480,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-22T16:25:00Z",
+      "StripePaymentId": "pi_4567890123defghi",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "6011",
+        "billingAddress": "東京都中央区"
+      }
+    },
+    {
+      "PaymentId": "pay_005",
+      "SubscriptionId": "sub_005",
+      "Amount": 980,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-24T18:15:00Z",
+      "StripePaymentId": "pi_5678901234efghij",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "4242",
+        "billingAddress": "東京都品川区"
+      }
+    },
+    {
+      "PaymentId": "pay_006",
+      "SubscriptionId": "sub_006",
+      "Amount": 0,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-25T10:50:00Z",
+      "StripePaymentId": null,
+      "Metadata": {
+        "paymentMethod": "free_trial",
+        "trialPeriod": "30_days"
+      }
+    },
+    {
+      "PaymentId": "pay_007",
+      "SubscriptionId": "sub_007",
+      "Amount": 480,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-26T13:35:00Z",
+      "StripePaymentId": "pi_6789012345fghijk",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "5555",
+        "billingAddress": "東京都目黒区"
+      }
+    },
+    {
+      "PaymentId": "pay_008",
+      "SubscriptionId": "sub_008",
+      "Amount": 980,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-27T11:20:00Z",
+      "StripePaymentId": "pi_7890123456ghijkl",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "3782",
+        "billingAddress": "東京都世田谷区"
+      }
+    },
+    {
+      "PaymentId": "pay_009",
+      "SubscriptionId": "sub_009",
+      "Amount": 480,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-28T15:45:00Z",
+      "StripePaymentId": "pi_8901234567hijklm",
+      "Metadata": {
+        "paymentMethod": "credit_card",
+        "cardLast4": "6011",
+        "billingAddress": "東京都杉並区"
+      }
+    },
+    {
+      "PaymentId": "pay_010",
+      "SubscriptionId": "sub_010",
+      "Amount": 0,
+      "Currency": "JPY",
+      "Status": "completed",
+      "ProcessedAt": "2024-01-29T09:30:00Z",
+      "StripePaymentId": null,
+      "Metadata": {
+        "paymentMethod": "free_trial",
+        "trialPeriod": "30_days"
+      }
+    }
+  ]
+}

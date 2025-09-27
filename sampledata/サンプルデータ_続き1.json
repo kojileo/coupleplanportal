@@ -1,0 +1,490 @@
+{
+  "MS002_DatePlan": [
+    {
+      "PlanId": "plan_001",
+      "CoupleId": "cpl_001",
+      "Title": "銀座でのロマンチックディナー",
+      "Description": "銀座の老舗フレンチレストランで特別な夜を過ごしましょう。その後、皇居周辺を散歩して東京の夜景を楽しみます。",
+      "Budget": 25000,
+      "Duration": 180,
+      "Status": "completed",
+      "CreatedAt": "2024-01-20T10:00:00Z",
+      "UpdatedAt": "2024-01-22T18:00:00Z"
+    },
+    {
+      "PlanId": "plan_002",
+      "CoupleId": "cpl_002",
+      "Title": "鎌倉の歴史散策とカフェ巡り",
+      "Description": "鎌倉の大仏と鶴岡八幡宮を訪れ、その後、由比ヶ浜沿いのカフェでゆっくりとした時間を過ごします。",
+      "Budget": 15000,
+      "Duration": 240,
+      "Status": "draft",
+      "CreatedAt": "2024-01-21T14:30:00Z",
+      "UpdatedAt": "2024-01-21T14:30:00Z"
+    },
+    {
+      "PlanId": "plan_003",
+      "CoupleId": "cpl_003",
+      "Title": "お台場でのアクティブデート",
+      "Description": "お台場のレインボーブリッジをサイクリングで渡り、デックス東京ビーチでショッピングとランチを楽しみます。",
+      "Budget": 12000,
+      "Duration": 300,
+      "Status": "active",
+      "CreatedAt": "2024-01-22T09:15:00Z",
+      "UpdatedAt": "2024-01-22T09:15:00Z"
+    },
+    {
+      "PlanId": "plan_004",
+      "CoupleId": "cpl_004",
+      "Title": "六本木のアート鑑賞デート",
+      "Description": "森美術館で現代アートを鑑賞し、六本木ヒルズの展望台から東京の街並みを一望します。",
+      "Budget": 18000,
+      "Duration": 210,
+      "Status": "completed",
+      "CreatedAt": "2024-01-23T11:20:00Z",
+      "UpdatedAt": "2024-01-24T20:30:00Z"
+    },
+    {
+      "PlanId": "plan_005",
+      "CoupleId": "cpl_005",
+      "Title": "代官山の隠れ家カフェ巡り",
+      "Description": "代官山の路地裏にある隠れ家カフェを3軒巡り、それぞれの個性的な空間と美味しいコーヒーを楽しみます。",
+      "Budget": 8000,
+      "Duration": 180,
+      "Status": "draft",
+      "CreatedAt": "2024-01-24T16:45:00Z",
+      "UpdatedAt": "2024-01-24T16:45:00Z"
+    },
+    {
+      "PlanId": "plan_006",
+      "CoupleId": "cpl_006",
+      "Title": "箱根温泉旅行",
+      "Description": "箱根の老舗温泉旅館で一泊二日。露天風呂と懐石料理を楽しみ、芦ノ湖の景色を眺めながらゆっくりと過ごします。",
+      "Budget": 50000,
+      "Duration": 1440,
+      "Status": "active",
+      "CreatedAt": "2024-01-25T08:30:00Z",
+      "UpdatedAt": "2024-01-25T08:30:00Z"
+    },
+    {
+      "PlanId": "plan_007",
+      "CoupleId": "cpl_007",
+      "Title": "浅草寺とスカイツリー観光",
+      "Description": "浅草寺でお参りをしてから、東京スカイツリーに登り、東京の新しい名所を楽しみます。",
+      "Budget": 10000,
+      "Duration": 240,
+      "Status": "completed",
+      "CreatedAt": "2024-01-26T10:15:00Z",
+      "UpdatedAt": "2024-01-27T17:45:00Z"
+    },
+    {
+      "PlanId": "plan_008",
+      "CoupleId": "cpl_008",
+      "Title": "原宿・表参道ファッションデート",
+      "Description": "原宿の最新ファッションをチェックし、表参道の高級ブランド店を巡ります。カフェでティータイムも楽しみましょう。",
+      "Budget": 20000,
+      "Duration": 270,
+      "Status": "draft",
+      "CreatedAt": "2024-01-27T13:40:00Z",
+      "UpdatedAt": "2024-01-27T13:40:00Z"
+    },
+    {
+      "PlanId": "plan_009",
+      "CoupleId": "cpl_009",
+      "Title": "新宿御苑でのピクニック",
+      "Description": "新宿御苑の美しい庭園でピクニックを楽しみ、四季折々の花々を鑑賞しながらゆっくりとした時間を過ごします。",
+      "Budget": 6000,
+      "Duration": 180,
+      "Status": "active",
+      "CreatedAt": "2024-01-28T12:20:00Z",
+      "UpdatedAt": "2024-01-28T12:20:00Z"
+    },
+    {
+      "PlanId": "plan_010",
+      "CoupleId": "cpl_010",
+      "Title": "渋谷のナイトライフ体験",
+      "Description": "渋谷のクラブやバーを巡り、東京の夜を楽しみます。最後は渋谷の交差点の夜景を眺めながら締めくくります。",
+      "Budget": 22000,
+      "Duration": 300,
+      "Status": "completed",
+      "CreatedAt": "2024-01-29T18:00:00Z",
+      "UpdatedAt": "2024-01-30T02:00:00Z"
+    }
+  ],
+  "MS002_PlanItem": [
+    {
+      "ItemId": "item_001",
+      "PlanId": "plan_001",
+      "Type": "restaurant",
+      "Name": "銀座レストラン ル・クール",
+      "Location": "東京都中央区銀座6-10-1",
+      "Time": "2024-01-22T19:00:00Z",
+      "Cost": 18000,
+      "Order": 1
+    },
+    {
+      "ItemId": "item_002",
+      "PlanId": "plan_001",
+      "Type": "activity",
+      "Name": "皇居周辺散歩",
+      "Location": "東京都千代田区皇居外苑",
+      "Time": "2024-01-22T21:30:00Z",
+      "Cost": 0,
+      "Order": 2
+    },
+    {
+      "ItemId": "item_003",
+      "PlanId": "plan_002",
+      "Type": "sightseeing",
+      "Name": "鎌倉大仏",
+      "Location": "神奈川県鎌倉市長谷4-2-28",
+      "Time": "2024-01-25T10:00:00Z",
+      "Cost": 300,
+      "Order": 1
+    },
+    {
+      "ItemId": "item_004",
+      "PlanId": "plan_002",
+      "Type": "sightseeing",
+      "Name": "鶴岡八幡宮",
+      "Location": "神奈川県鎌倉市雪ノ下2-1-31",
+      "Time": "2024-01-25T11:30:00Z",
+      "Cost": 0,
+      "Order": 2
+    },
+    {
+      "ItemId": "item_005",
+      "PlanId": "plan_002",
+      "Type": "cafe",
+      "Name": "由比ヶ浜カフェ",
+      "Location": "神奈川県鎌倉市由比ヶ浜2-1-15",
+      "Time": "2024-01-25T14:00:00Z",
+      "Cost": 2500,
+      "Order": 3
+    },
+    {
+      "ItemId": "item_006",
+      "PlanId": "plan_003",
+      "Type": "activity",
+      "Name": "レインボーブリッジサイクリング",
+      "Location": "東京都港区台場1-4-1",
+      "Time": "2024-01-26T10:00:00Z",
+      "Cost": 3000,
+      "Order": 1
+    },
+    {
+      "ItemId": "item_007",
+      "PlanId": "plan_003",
+      "Type": "shopping",
+      "Name": "デックス東京ビーチ",
+      "Location": "東京都江東区青海1-3-15",
+      "Time": "2024-01-26T13:00:00Z",
+      "Cost": 5000,
+      "Order": 2
+    },
+    {
+      "ItemId": "item_008",
+      "PlanId": "plan_003",
+      "Type": "restaurant",
+      "Name": "お台場ランチレストラン",
+      "Location": "東京都江東区青海1-3-15",
+      "Time": "2024-01-26T14:30:00Z",
+      "Cost": 4000,
+      "Order": 3
+    },
+    {
+      "ItemId": "item_009",
+      "PlanId": "plan_004",
+      "Type": "museum",
+      "Name": "森美術館",
+      "Location": "東京都港区六本木6-10-1",
+      "Time": "2024-01-27T11:00:00Z",
+      "Cost": 2000,
+      "Order": 1
+    },
+    {
+      "ItemId": "item_010",
+      "PlanId": "plan_004",
+      "Type": "sightseeing",
+      "Name": "六本木ヒルズ展望台",
+      "Location": "東京都港区六本木6-10-1",
+      "Time": "2024-01-27T15:00:00Z",
+      "Cost": 1800,
+      "Order": 2
+    }
+  ],
+  "MS003_PlanSession": [
+    {
+      "SessionId": "sess_001",
+      "PlanId": "plan_001",
+      "CoupleId": "cpl_001",
+      "Status": "completed",
+      "StartedAt": "2024-01-20T10:00:00Z",
+      "EndedAt": "2024-01-20T11:30:00Z",
+      "SessionData": {
+        "participants": ["usr_001", "usr_002"],
+        "editCount": 15,
+        "conflictCount": 2
+      }
+    },
+    {
+      "SessionId": "sess_002",
+      "PlanId": "plan_002",
+      "CoupleId": "cpl_002",
+      "Status": "active",
+      "StartedAt": "2024-01-21T14:30:00Z",
+      "EndedAt": null,
+      "SessionData": {
+        "participants": ["usr_003", "usr_004"],
+        "editCount": 8,
+        "conflictCount": 0
+      }
+    },
+    {
+      "SessionId": "sess_003",
+      "PlanId": "plan_003",
+      "CoupleId": "cpl_003",
+      "Status": "completed",
+      "StartedAt": "2024-01-22T09:15:00Z",
+      "EndedAt": "2024-01-22T10:45:00Z",
+      "SessionData": {
+        "participants": ["usr_005", "usr_006"],
+        "editCount": 12,
+        "conflictCount": 1
+      }
+    },
+    {
+      "SessionId": "sess_004",
+      "PlanId": "plan_004",
+      "CoupleId": "cpl_004",
+      "Status": "completed",
+      "StartedAt": "2024-01-23T11:20:00Z",
+      "EndedAt": "2024-01-23T12:50:00Z",
+      "SessionData": {
+        "participants": ["usr_007", "usr_008"],
+        "editCount": 20,
+        "conflictCount": 3
+      }
+    },
+    {
+      "SessionId": "sess_005",
+      "PlanId": "plan_005",
+      "CoupleId": "cpl_005",
+      "Status": "active",
+      "StartedAt": "2024-01-24T16:45:00Z",
+      "EndedAt": null,
+      "SessionData": {
+        "participants": ["usr_009", "usr_010"],
+        "editCount": 5,
+        "conflictCount": 0
+      }
+    },
+    {
+      "SessionId": "sess_006",
+      "PlanId": "plan_006",
+      "CoupleId": "cpl_006",
+      "Status": "completed",
+      "StartedAt": "2024-01-25T08:30:00Z",
+      "EndedAt": "2024-01-25T10:00:00Z",
+      "SessionData": {
+        "participants": ["usr_011", "usr_012"],
+        "editCount": 25,
+        "conflictCount": 4
+      }
+    },
+    {
+      "SessionId": "sess_007",
+      "PlanId": "plan_007",
+      "CoupleId": "cpl_007",
+      "Status": "completed",
+      "StartedAt": "2024-01-26T10:15:00Z",
+      "EndedAt": "2024-01-26T11:45:00Z",
+      "SessionData": {
+        "participants": ["usr_013", "usr_014"],
+        "editCount": 18,
+        "conflictCount": 2
+      }
+    },
+    {
+      "SessionId": "sess_008",
+      "PlanId": "plan_008",
+      "CoupleId": "cpl_008",
+      "Status": "active",
+      "StartedAt": "2024-01-27T13:40:00Z",
+      "EndedAt": null,
+      "SessionData": {
+        "participants": ["usr_015", "usr_016"],
+        "editCount": 10,
+        "conflictCount": 1
+      }
+    },
+    {
+      "SessionId": "sess_009",
+      "PlanId": "plan_009",
+      "CoupleId": "cpl_009",
+      "Status": "completed",
+      "StartedAt": "2024-01-28T12:20:00Z",
+      "EndedAt": "2024-01-28T13:50:00Z",
+      "SessionData": {
+        "participants": ["usr_017", "usr_018"],
+        "editCount": 14,
+        "conflictCount": 0
+      }
+    },
+    {
+      "SessionId": "sess_010",
+      "PlanId": "plan_010",
+      "CoupleId": "cpl_010",
+      "Status": "completed",
+      "StartedAt": "2024-01-29T18:00:00Z",
+      "EndedAt": "2024-01-29T19:30:00Z",
+      "SessionData": {
+        "participants": ["usr_019", "usr_020"],
+        "editCount": 22,
+        "conflictCount": 3
+      }
+    }
+  ],
+  "MS004_Date": [
+    {
+      "DateId": "date_001",
+      "PlanId": "plan_001",
+      "CoupleId": "cpl_001",
+      "Status": "completed",
+      "StartedAt": "2024-01-22T18:30:00Z",
+      "EndedAt": "2024-01-22T22:00:00Z",
+      "Location": {
+        "latitude": 35.6762,
+        "longitude": 139.6503,
+        "address": "東京都中央区銀座"
+      },
+      "Notes": "素晴らしいディナーでした。レストランの雰囲気も料理も最高でした。"
+    },
+    {
+      "DateId": "date_002",
+      "PlanId": "plan_003",
+      "CoupleId": "cpl_003",
+      "Status": "active",
+      "StartedAt": "2024-01-26T09:30:00Z",
+      "EndedAt": null,
+      "Location": {
+        "latitude": 35.6300,
+        "longitude": 139.7800,
+        "address": "東京都港区台場"
+      },
+      "Notes": "サイクリングが楽しかった！天気も良くて最高のデートになりそうです。"
+    },
+    {
+      "DateId": "date_003",
+      "PlanId": "plan_004",
+      "CoupleId": "cpl_004",
+      "Status": "completed",
+      "StartedAt": "2024-01-27T10:30:00Z",
+      "EndedAt": "2024-01-27T18:00:00Z",
+      "Location": {
+        "latitude": 35.6654,
+        "longitude": 139.7296,
+        "address": "東京都港区六本木"
+      },
+      "Notes": "アート鑑賞と展望台からの景色、どちらも素晴らしかったです。"
+    },
+    {
+      "DateId": "date_004",
+      "PlanId": "plan_007",
+      "CoupleId": "cpl_007",
+      "Status": "completed",
+      "StartedAt": "2024-01-27T09:00:00Z",
+      "EndedAt": "2024-01-27T17:30:00Z",
+      "Location": {
+        "latitude": 35.7148,
+        "longitude": 139.7967,
+        "address": "東京都墨田区押上"
+      },
+      "Notes": "浅草寺でのお参りとスカイツリーの展望、東京の新旧が楽しめました。"
+    },
+    {
+      "DateId": "date_005",
+      "PlanId": "plan_010",
+      "CoupleId": "cpl_010",
+      "Status": "completed",
+      "StartedAt": "2024-01-29T19:00:00Z",
+      "EndedAt": "2024-01-30T01:30:00Z",
+      "Location": {
+        "latitude": 35.6598,
+        "longitude": 139.7006,
+        "address": "東京都渋谷区渋谷"
+      },
+      "Notes": "渋谷の夜は最高でした！クラブもバーも楽しくて、忘れられない夜になりました。"
+    },
+    {
+      "DateId": "date_006",
+      "PlanId": "plan_006",
+      "CoupleId": "cpl_006",
+      "Status": "active",
+      "StartedAt": "2024-01-30T10:00:00Z",
+      "EndedAt": null,
+      "Location": {
+        "latitude": 35.2324,
+        "longitude": 139.1033,
+        "address": "神奈川県箱根町"
+      },
+      "Notes": "箱根の温泉は最高！自然に囲まれてリラックスできています。"
+    },
+    {
+      "DateId": "date_007",
+      "PlanId": "plan_009",
+      "CoupleId": "cpl_009",
+      "Status": "completed",
+      "StartedAt": "2024-01-28T11:00:00Z",
+      "EndedAt": "2024-01-28T16:00:00Z",
+      "Location": {
+        "latitude": 35.6852,
+        "longitude": 139.7107,
+        "address": "東京都新宿区新宿御苑"
+      },
+      "Notes": "新宿御苑でのピクニック、天気も良くて花も美しく、とてもリラックスできました。"
+    },
+    {
+      "DateId": "date_008",
+      "PlanId": "plan_002",
+      "CoupleId": "cpl_002",
+      "Status": "scheduled",
+      "StartedAt": "2024-02-03T09:00:00Z",
+      "EndedAt": null,
+      "Location": {
+        "latitude": 35.3169,
+        "longitude": 139.5503,
+        "address": "神奈川県鎌倉市"
+      },
+      "Notes": "鎌倉デートの準備中。歴史ある街をゆっくりと楽しみたいと思います。"
+    },
+    {
+      "DateId": "date_009",
+      "PlanId": "plan_005",
+      "CoupleId": "cpl_005",
+      "Status": "scheduled",
+      "StartedAt": "2024-02-05T14:00:00Z",
+      "EndedAt": null,
+      "Location": {
+        "latitude": 35.6486,
+        "longitude": 139.7035,
+        "address": "東京都渋谷区代官山"
+      },
+      "Notes": "代官山の隠れ家カフェ巡り、とても楽しみです。"
+    },
+    {
+      "DateId": "date_010",
+      "PlanId": "plan_008",
+      "CoupleId": "cpl_008",
+      "Status": "scheduled",
+      "StartedAt": "2024-02-07T11:00:00Z",
+      "EndedAt": null,
+      "Location": {
+        "latitude": 35.6702,
+        "longitude": 139.7026,
+        "address": "東京都渋谷区原宿"
+      },
+      "Notes": "原宿・表参道でのファッションデート、おしゃれな時間を過ごしたいと思います。"
+    }
+  ]
+}

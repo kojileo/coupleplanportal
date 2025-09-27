@@ -1,0 +1,592 @@
+{
+  "MS005_Relationship": [
+    {
+      "RelationshipId": "rel_001",
+      "CoupleId": "cpl_001",
+      "Score": 85.5,
+      "Trend": "improving",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 8.2,
+        "intimacy": 8.8,
+        "satisfaction": 8.1,
+        "conflict_resolution": 7.9
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_002",
+      "CoupleId": "cpl_002",
+      "Score": 92.3,
+      "Trend": "stable",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 9.1,
+        "intimacy": 9.3,
+        "satisfaction": 9.0,
+        "conflict_resolution": 9.2
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_003",
+      "CoupleId": "cpl_003",
+      "Score": 78.9,
+      "Trend": "improving",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 7.8,
+        "intimacy": 8.1,
+        "satisfaction": 7.9,
+        "conflict_resolution": 7.5
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_004",
+      "CoupleId": "cpl_004",
+      "Score": 88.7,
+      "Trend": "stable",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 8.9,
+        "intimacy": 8.7,
+        "satisfaction": 8.8,
+        "conflict_resolution": 8.6
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_005",
+      "CoupleId": "cpl_005",
+      "Score": 95.1,
+      "Trend": "improving",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 9.5,
+        "intimacy": 9.6,
+        "satisfaction": 9.4,
+        "conflict_resolution": 9.3
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_006",
+      "CoupleId": "cpl_006",
+      "Score": 82.4,
+      "Trend": "declining",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 8.0,
+        "intimacy": 8.3,
+        "satisfaction": 8.1,
+        "conflict_resolution": 7.8
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_007",
+      "CoupleId": "cpl_007",
+      "Score": 76.8,
+      "Trend": "improving",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 7.5,
+        "intimacy": 7.8,
+        "satisfaction": 7.6,
+        "conflict_resolution": 7.4
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_008",
+      "CoupleId": "cpl_008",
+      "Score": 89.3,
+      "Trend": "stable",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 8.8,
+        "intimacy": 9.0,
+        "satisfaction": 8.9,
+        "conflict_resolution": 8.7
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_009",
+      "CoupleId": "cpl_009",
+      "Score": 91.7,
+      "Trend": "stable",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 9.0,
+        "intimacy": 9.2,
+        "satisfaction": 9.1,
+        "conflict_resolution": 9.0
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    },
+    {
+      "RelationshipId": "rel_010",
+      "CoupleId": "cpl_010",
+      "Score": 73.2,
+      "Trend": "declining",
+      "LastAnalyzed": "2024-01-27T00:00:00Z",
+      "Metrics": {
+        "communication": 7.2,
+        "intimacy": 7.4,
+        "satisfaction": 7.3,
+        "conflict_resolution": 7.0
+      },
+      "UpdatedAt": "2024-01-27T00:00:00Z"
+    }
+  ],
+  "MS005_Conflict": [
+    {
+      "ConflictId": "conf_001",
+      "CoupleId": "cpl_006",
+      "Type": "communication",
+      "Severity": "medium",
+      "Description": "デートの予定について意見が合わず、お互いの希望を伝え合えていない状況",
+      "DetectedAt": "2024-01-25T14:30:00Z",
+      "ResolvedAt": "2024-01-26T10:15:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_002",
+      "CoupleId": "cpl_010",
+      "Type": "time_management",
+      "Severity": "high",
+      "Description": "お互いの時間の使い方について不満があり、プライベートな時間の確保について話し合いが必要",
+      "DetectedAt": "2024-01-26T09:20:00Z",
+      "ResolvedAt": null,
+      "Status": "active"
+    },
+    {
+      "ConflictId": "conf_003",
+      "CoupleId": "cpl_007",
+      "Type": "expectations",
+      "Severity": "low",
+      "Description": "将来の計画について軽微な意見の相違があり、お互いの価値観を理解し合う必要がある",
+      "DetectedAt": "2024-01-24T16:45:00Z",
+      "ResolvedAt": "2024-01-25T11:30:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_004",
+      "CoupleId": "cpl_003",
+      "Type": "communication",
+      "Severity": "medium",
+      "Description": "日常のコミュニケーション不足により、お互いの気持ちを理解し合えていない",
+      "DetectedAt": "2024-01-23T13:15:00Z",
+      "ResolvedAt": "2024-01-24T15:20:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_005",
+      "CoupleId": "cpl_001",
+      "Type": "financial",
+      "Severity": "low",
+      "Description": "デートの費用について軽微な意見の相違があり、予算の使い方について話し合いが必要",
+      "DetectedAt": "2024-01-22T10:30:00Z",
+      "ResolvedAt": "2024-01-22T12:00:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_006",
+      "CoupleId": "cpl_008",
+      "Type": "personal_space",
+      "Severity": "medium",
+      "Description": "お互いのプライベートな時間と空間について、バランスを取る必要がある",
+      "DetectedAt": "2024-01-25T11:45:00Z",
+      "ResolvedAt": null,
+      "Status": "active"
+    },
+    {
+      "ConflictId": "conf_007",
+      "CoupleId": "cpl_004",
+      "Type": "communication",
+      "Severity": "low",
+      "Description": "日常会話の中で、お互いの話を聞く姿勢について改善の余地がある",
+      "DetectedAt": "2024-01-24T14:20:00Z",
+      "ResolvedAt": "2024-01-24T16:30:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_008",
+      "CoupleId": "cpl_009",
+      "Type": "expectations",
+      "Severity": "medium",
+      "Description": "将来の計画について、お互いの希望を明確にし合う必要がある",
+      "DetectedAt": "2024-01-26T15:10:00Z",
+      "ResolvedAt": "2024-01-27T09:45:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_009",
+      "CoupleId": "cpl_002",
+      "Type": "time_management",
+      "Severity": "low",
+      "Description": "デートの時間配分について、お互いの希望を調整する必要がある",
+      "DetectedAt": "2024-01-25T16:30:00Z",
+      "ResolvedAt": "2024-01-25T18:00:00Z",
+      "Status": "resolved"
+    },
+    {
+      "ConflictId": "conf_010",
+      "CoupleId": "cpl_005",
+      "Type": "communication",
+      "Severity": "low",
+      "Description": "日常のコミュニケーションで、お互いの気持ちをより深く理解し合う方法を探る必要がある",
+      "DetectedAt": "2024-01-24T12:15:00Z",
+      "ResolvedAt": "2024-01-24T14:30:00Z",
+      "Status": "resolved"
+    }
+  ],
+  "MS006_Memory": [
+    {
+      "MemoryId": "mem_001",
+      "DateId": "date_001",
+      "Type": "photo",
+      "Content": "銀座のレストランでの記念写真",
+      "MediaUrl": "https://storage.example.com/memories/photo_001.jpg",
+      "ExtractedAt": "2024-01-22T22:30:00Z",
+      "Quality": 9.2,
+      "Metadata": {
+        "location": "銀座",
+        "mood": "romantic",
+        "keywords": ["ディナー", "記念日", "ロマンチック"]
+      }
+    },
+    {
+      "MemoryId": "mem_002",
+      "DateId": "date_001",
+      "Type": "quote",
+      "Content": "「このレストランの雰囲気、本当に素晴らしいね」",
+      "MediaUrl": null,
+      "ExtractedAt": "2024-01-22T22:35:00Z",
+      "Quality": 8.8,
+      "Metadata": {
+        "speaker": "usr_001",
+        "mood": "happy",
+        "keywords": ["レストラン", "雰囲気", "素晴らしい"]
+      }
+    },
+    {
+      "MemoryId": "mem_003",
+      "DateId": "date_003",
+      "Type": "photo",
+      "Content": "六本木ヒルズ展望台からの夜景",
+      "MediaUrl": "https://storage.example.com/memories/photo_002.jpg",
+      "ExtractedAt": "2024-01-27T18:15:00Z",
+      "Quality": 9.5,
+      "Metadata": {
+        "location": "六本木ヒルズ",
+        "mood": "amazing",
+        "keywords": ["夜景", "展望台", "東京"]
+      }
+    },
+    {
+      "MemoryId": "mem_004",
+      "DateId": "date_003",
+      "Type": "quote",
+      "Content": "「東京の夜景って本当に美しいね。一緒に見られて幸せ」",
+      "MediaUrl": null,
+      "ExtractedAt": "2024-01-27T18:20:00Z",
+      "Quality": 9.1,
+      "Metadata": {
+        "speaker": "usr_008",
+        "mood": "romantic",
+        "keywords": ["夜景", "美しい", "幸せ"]
+      }
+    },
+    {
+      "MemoryId": "mem_005",
+      "DateId": "date_005",
+      "Type": "video",
+      "Content": "渋谷のクラブでのダンス動画",
+      "MediaUrl": "https://storage.example.com/memories/video_001.mp4",
+      "ExtractedAt": "2024-01-30T00:30:00Z",
+      "Quality": 8.7,
+      "Metadata": {
+        "location": "渋谷",
+        "mood": "energetic",
+        "keywords": ["ダンス", "クラブ", "楽しい"]
+      }
+    },
+    {
+      "MemoryId": "mem_006",
+      "DateId": "date_005",
+      "Type": "quote",
+      "Content": "「今夜は最高だった！また来ようね」",
+      "MediaUrl": null,
+      "ExtractedAt": "2024-01-30T01:00:00Z",
+      "Quality": 9.0,
+      "Metadata": {
+        "speaker": "usr_020",
+        "mood": "excited",
+        "keywords": ["最高", "また来よう", "楽しい"]
+      }
+    },
+    {
+      "MemoryId": "mem_007",
+      "DateId": "date_007",
+      "Type": "photo",
+      "Content": "新宿御苑でのピクニック風景",
+      "MediaUrl": "https://storage.example.com/memories/photo_003.jpg",
+      "ExtractedAt": "2024-01-28T15:30:00Z",
+      "Quality": 8.9,
+      "Metadata": {
+        "location": "新宿御苑",
+        "mood": "peaceful",
+        "keywords": ["ピクニック", "自然", "リラックス"]
+      }
+    },
+    {
+      "MemoryId": "mem_008",
+      "DateId": "date_007",
+      "Type": "quote",
+      "Content": "「自然の中で過ごす時間って本当に癒されるね」",
+      "MediaUrl": null,
+      "ExtractedAt": "2024-01-28T15:45:00Z",
+      "Quality": 8.6,
+      "Metadata": {
+        "speaker": "usr_017",
+        "mood": "relaxed",
+        "keywords": ["自然", "癒される", "リラックス"]
+      }
+    },
+    {
+      "MemoryId": "mem_009",
+      "DateId": "date_004",
+      "Type": "photo",
+      "Content": "浅草寺でのお参りの記念写真",
+      "MediaUrl": "https://storage.example.com/memories/photo_004.jpg",
+      "ExtractedAt": "2024-01-27T17:00:00Z",
+      "Quality": 8.8,
+      "Metadata": {
+        "location": "浅草寺",
+        "mood": "spiritual",
+        "keywords": ["お参り", "記念", "伝統"]
+      }
+    },
+    {
+      "MemoryId": "mem_010",
+      "DateId": "date_004",
+      "Type": "quote",
+      "Content": "「お参りをして、心が清々しくなった」",
+      "MediaUrl": null,
+      "ExtractedAt": "2024-01-27T17:15:00Z",
+      "Quality": 8.4,
+      "Metadata": {
+        "speaker": "usr_014",
+        "mood": "peaceful",
+        "keywords": ["お参り", "清々しい", "心"]
+      }
+    }
+  ],
+  "MS007_PortalContent": [
+    {
+      "ContentId": "cont_001",
+      "Type": "article",
+      "Title": "銀座で楽しめるロマンチックなデートスポット10選",
+      "Body": "銀座は東京を代表する高級エリアで、カップルデートに最適なスポットがたくさんあります。今回は、銀座で楽しめるロマンチックなデートスポットを10選ご紹介します。",
+      "Tags": ["銀座", "デートスポット", "ロマンチック", "東京"],
+      "PublishedAt": "2024-01-15T10:00:00Z",
+      "UpdatedAt": "2024-01-15T10:00:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_002",
+      "Type": "article",
+      "Title": "鎌倉の歴史ある観光スポットと美味しいカフェ巡り",
+      "Body": "鎌倉は歴史と自然が調和した魅力的な街です。大仏や鶴岡八幡宮などの歴史的建造物から、由比ヶ浜沿いのカフェまで、カップルで楽しめるスポットをご紹介します。",
+      "Tags": ["鎌倉", "観光", "カフェ", "歴史"],
+      "PublishedAt": "2024-01-16T14:30:00Z",
+      "UpdatedAt": "2024-01-16T14:30:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_003",
+      "Type": "article",
+      "Title": "お台場でアクティブに楽しむデートプラン",
+      "Body": "お台場は海辺のリゾート感と都会の便利さが融合した特別なエリアです。サイクリング、ショッピング、ランチまで、アクティブなデートを楽しめるプランをご提案します。",
+      "Tags": ["お台場", "アクティブ", "サイクリング", "ショッピング"],
+      "PublishedAt": "2024-01-17T09:20:00Z",
+      "UpdatedAt": "2024-01-17T09:20:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_004",
+      "Type": "article",
+      "Title": "六本木でアートと夜景を楽しむ文化的デート",
+      "Body": "六本木は現代アートと夜景が楽しめる文化的なエリアです。森美術館でのアート鑑賞から、六本木ヒルズの展望台まで、知的なデートを楽しめるスポットをご紹介します。",
+      "Tags": ["六本木", "アート", "夜景", "文化的"],
+      "PublishedAt": "2024-01-18T16:50:00Z",
+      "UpdatedAt": "2024-01-18T16:50:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_005",
+      "Type": "article",
+      "Title": "代官山の隠れ家カフェでゆっくりとした時間を",
+      "Body": "代官山には個性的な隠れ家カフェがたくさんあります。路地裏にあるおしゃれなカフェを巡り、ゆっくりとした時間を過ごせるデートプランをご提案します。",
+      "Tags": ["代官山", "カフェ", "隠れ家", "おしゃれ"],
+      "PublishedAt": "2024-01-19T11:35:00Z",
+      "UpdatedAt": "2024-01-19T11:35:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_006",
+      "Type": "article",
+      "Title": "箱根温泉でリラックスできる一泊二日の旅",
+      "Body": "箱根は東京からアクセスしやすい温泉地として人気です。老舗温泉旅館での宿泊から、芦ノ湖の景色まで、リラックスできる一泊二日の旅プランをご紹介します。",
+      "Tags": ["箱根", "温泉", "一泊二日", "リラックス"],
+      "PublishedAt": "2024-01-20T13:25:00Z",
+      "UpdatedAt": "2024-01-20T13:25:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_007",
+      "Type": "article",
+      "Title": "浅草寺とスカイツリーで東京の新旧を楽しむ",
+      "Body": "浅草寺は東京の伝統的な観光地として人気です。お参りをしてから、東京スカイツリーに登り、東京の新旧の魅力を楽しめるデートプランをご提案します。",
+      "Tags": ["浅草寺", "スカイツリー", "観光", "東京"],
+      "PublishedAt": "2024-01-21T08:50:00Z",
+      "UpdatedAt": "2024-01-21T08:50:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_008",
+      "Type": "article",
+      "Title": "原宿・表参道でファッションデートを楽しむ",
+      "Body": "原宿と表参道は東京のファッションの中心地です。最新トレンドをチェックしてから、高級ブランド店を巡り、おしゃれなデートを楽しめるプランをご紹介します。",
+      "Tags": ["原宿", "表参道", "ファッション", "おしゃれ"],
+      "PublishedAt": "2024-01-22T15:15:00Z",
+      "UpdatedAt": "2024-01-22T15:15:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_009",
+      "Type": "article",
+      "Title": "新宿御苑で自然と触れ合うピクニックデート",
+      "Body": "新宿御苑は都心にありながら自然豊かな庭園です。四季折々の花々を楽しみながら、ピクニックデートを楽しめるプランをご提案します。",
+      "Tags": ["新宿御苑", "ピクニック", "自然", "庭園"],
+      "PublishedAt": "2024-01-23T12:35:00Z",
+      "UpdatedAt": "2024-01-23T12:35:00Z",
+      "Status": "published"
+    },
+    {
+      "ContentId": "cont_010",
+      "Type": "article",
+      "Title": "渋谷のナイトライフで夜を楽しむデート",
+      "Body": "渋谷は東京の夜の中心地として賑わっています。クラブやバーを巡り、東京の夜を楽しめるナイトライフデートプランをご紹介します。",
+      "Tags": ["渋谷", "ナイトライフ", "クラブ", "バー"],
+      "PublishedAt": "2024-01-24T17:30:00Z",
+      "UpdatedAt": "2024-01-24T17:30:00Z",
+      "Status": "published"
+    }
+  ],
+  "MS008_Subscription": [
+    {
+      "SubscriptionId": "sub_001",
+      "CoupleId": "cpl_001",
+      "Plan": "premium",
+      "Status": "active",
+      "StartedAt": "2024-01-16T14:30:00Z",
+      "ExpiresAt": "2024-04-16T14:30:00Z",
+      "Amount": 980,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_002",
+      "CoupleId": "cpl_002",
+      "Plan": "basic",
+      "Status": "active",
+      "StartedAt": "2024-01-18T17:00:00Z",
+      "ExpiresAt": "2024-04-18T17:00:00Z",
+      "Amount": 480,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_003",
+      "CoupleId": "cpl_003",
+      "Plan": "premium",
+      "Status": "active",
+      "StartedAt": "2024-01-20T14:15:00Z",
+      "ExpiresAt": "2024-04-20T14:15:00Z",
+      "Amount": 980,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_004",
+      "CoupleId": "cpl_004",
+      "Plan": "basic",
+      "Status": "active",
+      "StartedAt": "2024-01-22T16:20:00Z",
+      "ExpiresAt": "2024-04-22T16:20:00Z",
+      "Amount": 480,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_005",
+      "CoupleId": "cpl_005",
+      "Plan": "premium",
+      "Status": "active",
+      "StartedAt": "2024-01-24T18:10:00Z",
+      "ExpiresAt": "2024-04-24T18:10:00Z",
+      "Amount": 980,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_006",
+      "CoupleId": "cpl_006",
+      "Plan": "free",
+      "Status": "active",
+      "StartedAt": "2024-01-25T10:45:00Z",
+      "ExpiresAt": "2024-02-25T10:45:00Z",
+      "Amount": 0,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_007",
+      "CoupleId": "cpl_007",
+      "Plan": "basic",
+      "Status": "active",
+      "StartedAt": "2024-01-26T13:30:00Z",
+      "ExpiresAt": "2024-04-26T13:30:00Z",
+      "Amount": 480,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_008",
+      "CoupleId": "cpl_008",
+      "Plan": "premium",
+      "Status": "active",
+      "StartedAt": "2024-01-27T11:15:00Z",
+      "ExpiresAt": "2024-04-27T11:15:00Z",
+      "Amount": 980,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_009",
+      "CoupleId": "cpl_009",
+      "Plan": "basic",
+      "Status": "active",
+      "StartedAt": "2024-01-28T15:40:00Z",
+      "ExpiresAt": "2024-04-28T15:40:00Z",
+      "Amount": 480,
+      "Currency": "JPY"
+    },
+    {
+      "SubscriptionId": "sub_010",
+      "CoupleId": "cpl_010",
+      "Plan": "free",
+      "Status": "active",
+      "StartedAt": "2024-01-29T09:25:00Z",
+      "ExpiresAt": "2024-02-29T09:25:00Z",
+      "Amount": 0,
+      "Currency": "JPY"
+    }
+  ]
+}
