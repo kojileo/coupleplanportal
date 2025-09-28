@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関係修復プラン - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">関係修復プラン</h1>
+                    <p class="page-subtitle">AIが分析した結果に基づく具体的な修復プランを提案します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 分析結果サマリー -->
+            <div class="analysis-summary">
+                <div class="summary-header">
+                    <h2>分析結果サマリー</h2>
+                    <div class="summary-score">
+                        <div class="score-circle">
+                            <span class="score-number">65</span>
+                            <span class="score-label">関係性スコア</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h3>主な問題点</h3>
+                            <ul>
+                                <li>コミュニケーション不足</li>
+                                <li>価値観の相違</li>
+                                <li>時間の使い方の不一致</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h3>改善の可能性</h3>
+                            <ul>
+                                <li>共通の趣味の発見</li>
+                                <li>定期的な対話の機会</li>
+                                <li>相互理解の促進</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 修復プラン -->
+            <div class="repair-plan">
+                <div class="plan-header">
+                    <h2>関係修復プラン</h2>
+                    <p>段階的なアプローチで関係を改善していきます</p>
+                </div>
+                
+                <div class="plan-phases">
+                    <!-- フェーズ1 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">1</div>
+                            <div class="phase-info">
+                                <h3>関係の修復（1-2週間）</h3>
+                                <p>基本的な信頼関係を再構築</p>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <div class="phase-tasks">
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>毎日の短時間対話</h4>
+                                        <p>10分間の日常会話を毎日実施</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">10分/日</span>
+                                            <span class="task-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>感謝の表現</h4>
+                                        <p>お互いの良い点を伝え合う</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">5分/日</span>
+                                            <span class="task-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>週末の時間共有</h4>
+                                        <p>一緒に過ごす時間を確保</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">2時間</span>
+                                            <span class="task-frequency">週1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フェーズ2 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">2</div>
+                            <div class="phase-info">
+                                <h3>理解の深化（2-4週間）</h3>
+                                <p>お互いの価値観や感情を深く理解</p>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <div class="phase-tasks">
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>価値観の共有</h4>
+                                        <p>お互いの価値観について話し合う</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">30分</span>
+                                            <span class="task-frequency">週2回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>相互サポート</h4>
+                                        <p>お互いの目標や悩みをサポート</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">20分</span>
+                                            <span class="task-frequency">週3回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-utensils"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>共同活動</h4>
+                                        <p>一緒に料理や趣味を楽しむ</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">1時間</span>
+                                            <span class="task-frequency">週1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フェーズ3 -->
+                    <div class="phase-card">
+                        <div class="phase-header">
+                            <div class="phase-number">3</div>
+                            <div class="phase-info">
+                                <h3>関係の強化（4-8週間）</h3>
+                                <p>より深い絆と信頼関係を構築</p>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-content">
+                            <div class="phase-tasks">
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>特別な体験</h4>
+                                        <p>旅行やイベントで特別な時間を共有</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">半日</span>
+                                            <span class="task-frequency">月1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>サプライズ</h4>
+                                        <p>お互いを喜ばせるサプライズを企画</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">30分</span>
+                                            <span class="task-frequency">月1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item">
+                                    <div class="task-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="task-content">
+                                        <h4>将来の計画</h4>
+                                        <p>一緒に将来の目標や計画を立てる</p>
+                                        <div class="task-details">
+                                            <span class="task-duration">1時間</span>
+                                            <span class="task-frequency">月1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 具体的なアクション -->
+            <div class="action-plan">
+                <h2>今すぐできるアクション</h2>
+                <div class="action-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>感謝メッセージ</h3>
+                            <p>パートナーへの感謝を具体的に伝える</p>
+                            <button class="btn btn-primary" onclick="sendGratitude()">
+                                <i class="fas fa-paper-plane"></i>
+                                送信
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>デートの提案</h3>
+                            <p>一緒に過ごす時間を提案する</p>
+                            <button class="btn btn-primary" onclick="suggestDate()">
+                                <i class="fas fa-heart"></i>
+                                提案
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>小さなサプライズ</h3>
+                            <p>相手を喜ばせる小さなことをする</p>
+                            <button class="btn btn-primary" onclick="planSurprise()">
+                                <i class="fas fa-magic"></i>
+                                企画
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 進捗追跡 -->
+            <div class="progress-tracking">
+                <h2>進捗追跡</h2>
+                <div class="progress-content">
+                    <div class="progress-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">0%</div>
+                            <div class="stat-label">完了率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">完了タスク</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">総タスク数</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-actions">
+                        <button class="btn btn-primary" onclick="startTracking()">
+                            <i class="fas fa-play"></i>
+                            追跡を開始
+                        </button>
+                        <button class="btn btn-outline" onclick="viewProgress()">
+                            <i class="fas fa-chart-line"></i>
+                            詳細表示
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終アクション -->
+            <div class="final-actions">
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="savePlan()">
+                        <i class="fas fa-save"></i>
+                        プランを保存
+                    </button>
+                    <button class="btn btn-primary" onclick="startRepair()">
+                        <i class="fas fa-heart"></i>
+                        修復を開始
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeRepairPlan();
+        });
+        
+        function initializeRepairPlan() {
+            // 関係修復プラン画面の初期化
+            setupProgressTracking();
+            setupActionButtons();
+        }
+        
+        function setupProgressTracking() {
+            // 進捗追跡の設定
+            console.log('進捗追跡を設定しました');
+        }
+        
+        function setupActionButtons() {
+            // アクションボタンの設定
+            console.log('アクションボタンを設定しました');
+        }
+        
+        function sendGratitude() {
+            showInfo('感謝メッセージを送信します');
+        }
+        
+        function suggestDate() {
+            showInfo('デートの提案を送信します');
+        }
+        
+        function planSurprise() {
+            showInfo('サプライズを企画します');
+        }
+        
+        function startTracking() {
+            showInfo('進捗追跡を開始します');
+        }
+        
+        function viewProgress() {
+            showInfo('進捗の詳細を表示します');
+        }
+        
+        function savePlan() {
+            showInfo('修復プランを保存しています...');
+            setTimeout(() => {
+                showSuccess('修復プランが保存されました');
+            }, 1000);
+        }
+        
+        function startRepair() {
+            showInfo('関係修復を開始します');
+            setTimeout(() => {
+                window.location.href = 'UC004-005.html';
+            }, 1000);
+        }
+    </script>
+    
+    <style>
+        .analysis-summary {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .summary-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .summary-score {
+            text-align: center;
+        }
+        
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .score-number {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+        }
+        
+        .score-label {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+        
+        .summary-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+        }
+        
+        .detail-item {
+            display: flex;
+            gap: var(--space-4);
+        }
+        
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .detail-item:first-child .detail-icon {
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+        
+        .detail-item:last-child .detail-icon {
+            background-color: #f0fdf4;
+            color: #16a34a;
+        }
+        
+        .detail-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .detail-content ul {
+            list-style: none;
+        }
+        
+        .detail-content li {
+            padding: var(--space-1) 0;
+            color: var(--text-secondary);
+        }
+        
+        .detail-content li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: var(--space-2);
+        }
+        
+        .repair-plan {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .plan-header {
+            text-align: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .plan-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .plan-header p {
+            color: var(--text-secondary);
+        }
+        
+        .plan-phases {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+        
+        .phase-card {
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            transition: all var(--transition-fast);
+        }
+        
+        .phase-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-4);
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .phase-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .phase-info h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .phase-info p {
+            color: var(--text-secondary);
+        }
+        
+        .phase-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .task-item {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .task-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-content h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .task-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .task-details {
+            display: flex;
+            gap: var(--space-4);
+        }
+        
+        .task-duration,
+        .task-frequency {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            background-color: var(--white);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-md);
+        }
+        
+        .action-plan {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .action-plan h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .action-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            transition: transform var(--transition-fast);
+        }
+        
+        .action-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .action-icon i {
+            color: var(--white);
+            font-size: var(--text-xl);
+        }
+        
+        .action-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .action-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .progress-tracking {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .progress-tracking h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .progress-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .progress-stats {
+            display: flex;
+            gap: var(--space-8);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .progress-actions {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .final-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .summary-header {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .summary-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .task-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .progress-content {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .progress-stats {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

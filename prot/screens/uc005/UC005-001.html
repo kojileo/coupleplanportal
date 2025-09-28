@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Canvas - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">Date Canvas</h1>
+                    <p class="page-subtitle">パートナーと一緒にデートの思い出を描きましょう</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- キャンバスツールバー -->
+            <div class="canvas-toolbar">
+                <div class="toolbar-left">
+                    <div class="collaboration-status">
+                        <div class="status-indicator online"></div>
+                        <span class="status-text">パートナーがオンライン</span>
+                    </div>
+                    <div class="collaboration-users">
+                        <div class="user-avatar">
+                            <img src="../../assets/images/user1.jpg" alt="あなた" onerror="this.style.display='none'">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="user-avatar">
+                            <img src="../../assets/images/user2.jpg" alt="パートナー" onerror="this.style.display='none'">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="toolbar-center">
+                    <div class="drawing-tools">
+                        <button class="tool-btn active" onclick="selectTool('pen')" data-tool="pen">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                        <button class="tool-btn" onclick="selectTool('brush')" data-tool="brush">
+                            <i class="fas fa-paint-brush"></i>
+                        </button>
+                        <button class="tool-btn" onclick="selectTool('eraser')" data-tool="eraser">
+                            <i class="fas fa-eraser"></i>
+                        </button>
+                        <button class="tool-btn" onclick="selectTool('text')" data-tool="text">
+                            <i class="fas fa-font"></i>
+                        </button>
+                        <button class="tool-btn" onclick="selectTool('sticker')" data-tool="sticker">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="toolbar-right">
+                    <div class="color-picker">
+                        <input type="color" id="colorPicker" value="#ff6b6b" onchange="changeColor(this.value)">
+                    </div>
+                    <div class="brush-size">
+                        <input type="range" id="brushSize" min="1" max="20" value="3" onchange="changeBrushSize(this.value)">
+                        <span id="brushSizeValue">3px</span>
+                    </div>
+                    <button class="btn btn-sm btn-outline" onclick="undo()">
+                        <i class="fas fa-undo"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline" onclick="redo()">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary" onclick="saveCanvas()">
+                        <i class="fas fa-save"></i>
+                        保存
+                    </button>
+                </div>
+            </div>
+
+            <!-- キャンバスエリア -->
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <canvas id="dateCanvas" width="800" height="600"></canvas>
+                    <div class="canvas-overlay">
+                        <div class="canvas-info">
+                            <h3>東京タワーデート</h3>
+                            <p>2025年1月25日</p>
+                        </div>
+                        <div class="canvas-actions">
+                            <button class="btn btn-sm btn-white" onclick="addPhoto()">
+                                <i class="fas fa-camera"></i>
+                                写真を追加
+                            </button>
+                            <button class="btn btn-sm btn-white" onclick="addLocation()">
+                                <i class="fas fa-map-marker-alt"></i>
+                                位置情報
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- サイドパネル -->
+                <div class="canvas-sidebar">
+                    <!-- レイヤーパネル -->
+                    <div class="layer-panel">
+                        <h3>レイヤー</h3>
+                        <div class="layers-list">
+                            <div class="layer-item active">
+                                <div class="layer-preview">
+                                    <div class="layer-thumbnail"></div>
+                                </div>
+                                <div class="layer-info">
+                                    <span class="layer-name">背景</span>
+                                    <div class="layer-controls">
+                                        <button class="layer-btn" onclick="toggleLayerVisibility(0)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="layer-btn" onclick="deleteLayer(0)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="layer-item">
+                                <div class="layer-preview">
+                                    <div class="layer-thumbnail"></div>
+                                </div>
+                                <div class="layer-info">
+                                    <span class="layer-name">描画レイヤー</span>
+                                    <div class="layer-controls">
+                                        <button class="layer-btn" onclick="toggleLayerVisibility(1)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="layer-btn" onclick="deleteLayer(1)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-primary" onclick="addLayer()">
+                            <i class="fas fa-plus"></i>
+                            レイヤーを追加
+                        </button>
+                    </div>
+                    
+                    <!-- ステッカーパネル -->
+                    <div class="sticker-panel">
+                        <h3>ステッカー</h3>
+                        <div class="sticker-categories">
+                            <button class="sticker-category active" onclick="selectStickerCategory('emotions')">
+                                <i class="fas fa-heart"></i>
+                                感情
+                            </button>
+                            <button class="sticker-category" onclick="selectStickerCategory('activities')">
+                                <i class="fas fa-running"></i>
+                                活動
+                            </button>
+                            <button class="sticker-category" onclick="selectStickerCategory('food')">
+                                <i class="fas fa-utensils"></i>
+                                食べ物
+                            </button>
+                            <button class="sticker-category" onclick="selectStickerCategory('places')">
+                                <i class="fas fa-map-marker-alt"></i>
+                                場所
+                            </button>
+                        </div>
+                        <div class="stickers-grid">
+                            <div class="sticker-item" onclick="addSticker('heart')">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="sticker-item" onclick="addSticker('smile')">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <div class="sticker-item" onclick="addSticker('star')">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="sticker-item" onclick="addSticker('camera')">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="sticker-item" onclick="addSticker('music')">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div class="sticker-item" onclick="addSticker('gift')">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 写真パネル -->
+                    <div class="photo-panel">
+                        <h3>写真</h3>
+                        <div class="photos-grid">
+                            <div class="photo-item">
+                                <img src="../../assets/images/photo1.jpg" alt="写真" onerror="this.style.display='none'">
+                                <div class="photo-overlay">
+                                    <button class="btn btn-sm btn-white" onclick="addPhotoToCanvas(1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="../../assets/images/photo2.jpg" alt="写真" onerror="this.style.display='none'">
+                                <div class="photo-overlay">
+                                    <button class="btn btn-sm btn-white" onclick="addPhotoToCanvas(2)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="../../assets/images/photo3.jpg" alt="写真" onerror="this.style.display='none'">
+                                <div class="photo-overlay">
+                                    <button class="btn btn-sm btn-white" onclick="addPhotoToCanvas(3)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline" onclick="uploadPhoto()">
+                            <i class="fas fa-upload"></i>
+                            写真をアップロード
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- コメントパネル -->
+            <div class="comments-panel">
+                <h3>コメント</h3>
+                <div class="comments-list">
+                    <div class="comment-item">
+                        <div class="comment-avatar">
+                            <img src="../../assets/images/user2.jpg" alt="パートナー" onerror="this.style.display='none'">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">田中 花子</span>
+                                <span class="comment-time">14:30</span>
+                            </div>
+                            <div class="comment-text">
+                                この写真、とても素敵ですね！ここにハートのステッカーを追加しましょう。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment-item">
+                        <div class="comment-avatar">
+                            <img src="../../assets/images/user1.jpg" alt="あなた" onerror="this.style.display='none'">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">あなた</span>
+                                <span class="comment-time">14:32</span>
+                            </div>
+                            <div class="comment-text">
+                                いいアイデアですね！追加しました。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comment-input">
+                    <div class="comment-avatar">
+                        <img src="../../assets/images/user1.jpg" alt="あなた" onerror="this.style.display='none'">
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="comment-form">
+                        <input type="text" class="form-input" placeholder="コメントを入力..." id="commentInput">
+                        <button class="btn btn-primary btn-sm" onclick="addComment()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        let canvas, ctx;
+        let isDrawing = false;
+        let currentTool = 'pen';
+        let currentColor = '#ff6b6b';
+        let currentBrushSize = 3;
+        let layers = [];
+        let currentLayer = 0;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCanvas();
+        });
+        
+        function initializeCanvas() {
+            canvas = document.getElementById('dateCanvas');
+            ctx = canvas.getContext('2d');
+            
+            // キャンバスイベントリスナー
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            // タッチイベント（モバイル対応）
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+            
+            // 初期レイヤーの設定
+            setupLayers();
+        }
+        
+        function setupLayers() {
+            layers = [
+                { name: '背景', visible: true, locked: false },
+                { name: '描画レイヤー', visible: true, locked: false }
+            ];
+        }
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            ctx.lineWidth = currentBrushSize;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = currentColor;
+            
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+        
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }
+        
+        function selectTool(tool) {
+            currentTool = tool;
+            
+            // ツールボタンの状態更新
+            document.querySelectorAll('.tool-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-tool="${tool}"]`).classList.add('active');
+            
+            // カーソルの変更
+            canvas.style.cursor = getToolCursor(tool);
+        }
+        
+        function getToolCursor(tool) {
+            const cursors = {
+                'pen': 'crosshair',
+                'brush': 'crosshair',
+                'eraser': 'crosshair',
+                'text': 'text',
+                'sticker': 'pointer'
+            };
+            return cursors[tool] || 'default';
+        }
+        
+        function changeColor(color) {
+            currentColor = color;
+        }
+        
+        function changeBrushSize(size) {
+            currentBrushSize = size;
+            document.getElementById('brushSizeValue').textContent = size + 'px';
+        }
+        
+        function undo() {
+            // 実際の実装では履歴管理を行う
+            showInfo('元に戻しました');
+        }
+        
+        function redo() {
+            // 実際の実装では履歴管理を行う
+            showInfo('やり直しました');
+        }
+        
+        function saveCanvas() {
+            // キャンバスを画像として保存
+            const dataURL = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'date-canvas.png';
+            link.href = dataURL;
+            link.click();
+            
+            showSuccess('キャンバスを保存しました');
+        }
+        
+        function addPhoto() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = new Image();
+                        img.onload = function() {
+                            ctx.drawImage(img, 50, 50, 200, 150);
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        }
+        
+        function addLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    
+                    // 位置情報をキャンバスに追加
+                    ctx.fillStyle = currentColor;
+                    ctx.font = '16px Arial';
+                    ctx.fillText(`位置: ${lat.toFixed(4)}, ${lng.toFixed(4)}`, 10, 30);
+                    
+                    showSuccess('位置情報を追加しました');
+                });
+            } else {
+                showWarning('位置情報が利用できません');
+            }
+        }
+        
+        function addLayer() {
+            const newLayer = {
+                name: `レイヤー ${layers.length + 1}`,
+                visible: true,
+                locked: false
+            };
+            layers.push(newLayer);
+            updateLayersList();
+        }
+        
+        function toggleLayerVisibility(index) {
+            layers[index].visible = !layers[index].visible;
+            updateLayersList();
+        }
+        
+        function deleteLayer(index) {
+            if (layers.length > 1) {
+                layers.splice(index, 1);
+                updateLayersList();
+            }
+        }
+        
+        function updateLayersList() {
+            // レイヤーリストの更新
+            console.log('レイヤーリストを更新しました');
+        }
+        
+        function selectStickerCategory(category) {
+            document.querySelectorAll('.sticker-category').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        function addSticker(stickerType) {
+            // ステッカーをキャンバスに追加
+            ctx.fillStyle = currentColor;
+            ctx.font = '24px Arial';
+            ctx.fillText(getStickerEmoji(stickerType), 100, 100);
+        }
+        
+        function getStickerEmoji(type) {
+            const emojis = {
+                'heart': '❤️',
+                'smile': '😊',
+                'star': '⭐',
+                'camera': '📷',
+                'music': '🎵',
+                'gift': '🎁'
+            };
+            return emojis[type] || '❤️';
+        }
+        
+        function addPhotoToCanvas(photoId) {
+            showInfo(`写真 ${photoId} をキャンバスに追加しました`);
+        }
+        
+        function uploadPhoto() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.multiple = true;
+            input.onchange = function(e) {
+                showSuccess(`${e.target.files.length} 枚の写真をアップロードしました`);
+            };
+            input.click();
+        }
+        
+        function addComment() {
+            const commentText = document.getElementById('commentInput').value;
+            if (commentText.trim()) {
+                // コメントを追加
+                showInfo('コメントを追加しました');
+                document.getElementById('commentInput').value = '';
+            }
+        }
+    </script>
+    
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .page-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .canvas-toolbar {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-4);
+            margin-bottom: var(--space-6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .collaboration-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+        }
+        
+        .status-text {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .collaboration-users {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            border: 2px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .toolbar-center {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .drawing-tools {
+            display: flex;
+            gap: var(--space-1);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .tool-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background-color: var(--white);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tool-btn:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .tool-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .toolbar-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .color-picker {
+            display: flex;
+            align-items: center;
+        }
+        
+        .color-picker input[type="color"] {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        
+        .brush-size {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .brush-size input[type="range"] {
+            width: 80px;
+        }
+        
+        .brush-size span {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            min-width: 30px;
+        }
+        
+        .canvas-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: var(--space-6);
+            margin-bottom: var(--space-6);
+        }
+        
+        .canvas-wrapper {
+            position: relative;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+        
+        #dateCanvas {
+            display: block;
+            width: 100%;
+            height: 600px;
+            background-color: var(--white);
+            cursor: crosshair;
+        }
+        
+        .canvas-overlay {
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            right: var(--space-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .canvas-info h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-1);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .canvas-info p {
+            color: var(--white);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .canvas-actions {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .btn-white {
+            background-color: var(--white);
+            color: var(--text-primary);
+            border: none;
+        }
+        
+        .btn-white:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .canvas-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .layer-panel,
+        .sticker-panel,
+        .photo-panel {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-4);
+        }
+        
+        .layer-panel h3,
+        .sticker-panel h3,
+        .photo-panel h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .layers-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .layer-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2);
+            border-radius: var(--radius-md);
+            transition: background-color var(--transition-fast);
+        }
+        
+        .layer-item:hover {
+            background-color: var(--gray-50);
+        }
+        
+        .layer-item.active {
+            background-color: rgba(255, 107, 107, 0.1);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .layer-preview {
+            width: 30px;
+            height: 30px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .layer-thumbnail {
+            width: 100%;
+            height: 100%;
+            background-color: var(--gray-200);
+        }
+        
+        .layer-info {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .layer-name {
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+        }
+        
+        .layer-controls {
+            display: flex;
+            gap: var(--space-1);
+        }
+        
+        .layer-btn {
+            width: 24px;
+            height: 24px;
+            border: none;
+            background-color: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xs);
+        }
+        
+        .layer-btn:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .sticker-categories {
+            display: flex;
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+            flex-wrap: wrap;
+        }
+        
+        .sticker-category {
+            padding: var(--space-2) var(--space-3);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            background-color: var(--white);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: var(--text-sm);
+        }
+        
+        .sticker-category:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .sticker-category.active {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .stickers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2);
+        }
+        
+        .sticker-item {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: var(--text-lg);
+        }
+        
+        .sticker-item:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2);
+            margin-bottom: var(--space-4);
+        }
+        
+        .photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+        
+        .comments-panel {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-6);
+        }
+        
+        .comments-panel h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .comment-item {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .comment-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-header {
+            display: flex;
+            gap: var(--space-2);
+            margin-bottom: var(--space-1);
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+        }
+        
+        .comment-time {
+            color: var(--text-secondary);
+            font-size: var(--text-xs);
+        }
+        
+        .comment-text {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            line-height: 1.5;
+        }
+        
+        .comment-input {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .comment-form {
+            flex: 1;
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .comment-form input {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .canvas-toolbar {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .toolbar-left,
+            .toolbar-center,
+            .toolbar-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .canvas-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .canvas-sidebar {
+                order: -1;
+            }
+            
+            .stickers-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メモ記録 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">メモ記録</h1>
+                    <p class="page-subtitle">デートの思い出や感想を記録しましょう</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 現在のデート情報 -->
+            <div class="current-date">
+                <div class="date-header">
+                    <h2>東京タワーロマンチックデート</h2>
+                    <div class="date-meta">
+                        <span class="date-time">2025年1月25日 14:00〜</span>
+                        <span class="date-status active">進行中</span>
+                    </div>
+                </div>
+                
+                <div class="date-progress">
+                    <div class="progress-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>東京タワー到着</span>
+                    </div>
+                    <div class="progress-item completed">
+                        <i class="fas fa-check-circle"></i>
+                        <span>カフェタイム</span>
+                    </div>
+                    <div class="progress-item active">
+                        <i class="fas fa-clock"></i>
+                        <span>芝公園散歩</span>
+                    </div>
+                    <div class="progress-item pending">
+                        <i class="fas fa-circle"></i>
+                        <span>ディナー</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- メモ記録フォーム -->
+            <div class="memo-form">
+                <div class="form-header">
+                    <h3>思い出を記録</h3>
+                    <p>今の気持ちや感想を自由に記録してください</p>
+                </div>
+                
+                <form class="memo-form-content" onsubmit="saveMemo(event)">
+                    <div class="form-group">
+                        <label for="memoTitle" class="form-label">タイトル</label>
+                        <input type="text" id="memoTitle" name="title" class="form-input" placeholder="例: 東京タワーからの景色が最高だった" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memoContent" class="form-label">内容</label>
+                        <textarea id="memoContent" name="content" class="form-textarea" placeholder="今日のデートで印象的だったこと、感じたこと、楽しかったことなどを自由に書いてください..." rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memoMood" class="form-label">気分</label>
+                        <div class="mood-selector">
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="happy">
+                                <span class="mood-icon">😊</span>
+                                <span class="mood-label">楽しい</span>
+                            </label>
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="romantic">
+                                <span class="mood-icon">😍</span>
+                                <span class="mood-label">ロマンチック</span>
+                            </label>
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="peaceful">
+                                <span class="mood-icon">😌</span>
+                                <span class="mood-label">穏やか</span>
+                            </label>
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="excited">
+                                <span class="mood-icon">🤩</span>
+                                <span class="mood-label">ワクワク</span>
+                            </label>
+                            <label class="mood-option">
+                                <input type="radio" name="mood" value="grateful">
+                                <span class="mood-icon">🥰</span>
+                                <span class="mood-label">感謝</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="memoTags" class="form-label">タグ</label>
+                        <div class="tag-input">
+                            <input type="text" id="memoTags" name="tags" class="form-input" placeholder="タグを入力（例: 夜景、カフェ、散歩）">
+                            <div class="tag-suggestions">
+                                <span class="tag-suggestion" onclick="addTag('夜景')">夜景</span>
+                                <span class="tag-suggestion" onclick="addTag('カフェ')">カフェ</span>
+                                <span class="tag-suggestion" onclick="addTag('散歩')">散歩</span>
+                                <span class="tag-suggestion" onclick="addTag('ロマンチック')">ロマンチック</span>
+                                <span class="tag-suggestion" onclick="addTag('写真')">写真</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="shareWithPartner">
+                            <span class="checkmark"></span>
+                            パートナーと共有する
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="saveDraft()">
+                            <i class="fas fa-save"></i>
+                            下書き保存
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            記録を保存
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 最近のメモ -->
+            <div class="recent-memos">
+                <div class="memos-header">
+                    <h3>最近のメモ</h3>
+                    <button class="btn btn-outline" onclick="viewAllMemos()">
+                        すべて表示
+                    </button>
+                </div>
+                
+                <div class="memos-list">
+                    <div class="memo-item">
+                        <div class="memo-header">
+                            <div class="memo-title">東京タワーからの景色</div>
+                            <div class="memo-time">2時間前</div>
+                        </div>
+                        <div class="memo-content">
+                            <p>展望台からの景色が本当に美しかった。パートナーと一緒に見る夕日は格別だった。</p>
+                        </div>
+                        <div class="memo-meta">
+                            <div class="memo-mood">
+                                <span class="mood-icon">😍</span>
+                                <span>ロマンチック</span>
+                            </div>
+                            <div class="memo-tags">
+                                <span class="tag">夜景</span>
+                                <span class="tag">夕日</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="memo-item">
+                        <div class="memo-header">
+                            <div class="memo-title">カフェでの会話</div>
+                            <div class="memo-time">3時間前</div>
+                        </div>
+                        <div class="memo-content">
+                            <p>カフェでゆっくりと話す時間がとても貴重だった。普段忙しくてなかなか話せないことを話せて良かった。</p>
+                        </div>
+                        <div class="memo-meta">
+                            <div class="memo-mood">
+                                <span class="mood-icon">😌</span>
+                                <span>穏やか</span>
+                            </div>
+                            <div class="memo-tags">
+                                <span class="tag">カフェ</span>
+                                <span class="tag">会話</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- メモ統計 -->
+            <div class="memo-stats">
+                <h3>メモ統計</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">総メモ数</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">ロマンチック</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">楽しい</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-share"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">10</div>
+                            <div class="stat-label">共有済み</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終アクション -->
+            <div class="final-actions">
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="viewDateCanvas()">
+                        <i class="fas fa-paint-brush"></i>
+                        Date Canvasで描く
+                    </button>
+                    <button class="btn btn-primary" onclick="continueDate()">
+                        <i class="fas fa-arrow-right"></i>
+                        デートを続行
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMemoRecording();
+        });
+        
+        function initializeMemoRecording() {
+            // メモ記録画面の初期化
+            setupMoodSelector();
+            setupTagInput();
+            setupFormValidation();
+        }
+        
+        function setupMoodSelector() {
+            // 気分選択の設定
+            document.querySelectorAll('.mood-option input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll('.mood-option').forEach(option => {
+                        option.classList.remove('selected');
+                    });
+                    this.closest('.mood-option').classList.add('selected');
+                });
+            });
+        }
+        
+        function setupTagInput() {
+            // タグ入力の設定
+            const tagInput = document.getElementById('memoTags');
+            tagInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    addTag(this.value.trim());
+                    this.value = '';
+                }
+            });
+        }
+        
+        function setupFormValidation() {
+            // フォーム検証の設定
+            console.log('フォーム検証を設定しました');
+        }
+        
+        function addTag(tag) {
+            const tagInput = document.getElementById('memoTags');
+            const currentTags = tagInput.value ? tagInput.value.split(',').map(t => t.trim()) : [];
+            
+            if (!currentTags.includes(tag)) {
+                currentTags.push(tag);
+                tagInput.value = currentTags.join(', ');
+            }
+        }
+        
+        function saveMemo(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const title = formData.get('title');
+            const content = formData.get('content');
+            const mood = formData.get('mood');
+            const tags = formData.get('tags');
+            const shareWithPartner = formData.get('shareWithPartner');
+            
+            showInfo('メモを保存しています...');
+            setTimeout(() => {
+                showSuccess('メモが保存されました');
+                // フォームをリセット
+                event.target.reset();
+                document.querySelectorAll('.mood-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+            }, 1000);
+        }
+        
+        function saveDraft() {
+            showInfo('下書きを保存しています...');
+            setTimeout(() => {
+                showSuccess('下書きが保存されました');
+            }, 1000);
+        }
+        
+        function viewAllMemos() {
+            showInfo('すべてのメモを表示します');
+        }
+        
+        function viewDateCanvas() {
+            showInfo('Date Canvasを開きます');
+            setTimeout(() => {
+                window.location.href = 'UC005-001.html';
+            }, 500);
+        }
+        
+        function continueDate() {
+            showInfo('デートを続行します');
+            setTimeout(() => {
+                window.location.href = 'UC005-004.html';
+            }, 500);
+        }
+    </script>
+    
+    <style>
+        .current-date {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .date-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-6);
+        }
+        
+        .date-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .date-meta {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            text-align: right;
+        }
+        
+        .date-time {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .date-status {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .date-status.active {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .date-progress {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+        
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+        }
+        
+        .progress-item.completed {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .progress-item.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .progress-item.pending {
+            background-color: var(--gray-200);
+            color: var(--text-secondary);
+        }
+        
+        .memo-form {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .form-header {
+            margin-bottom: var(--space-6);
+        }
+        
+        .form-header h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .form-header p {
+            color: var(--text-secondary);
+        }
+        
+        .memo-form-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .form-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .form-input,
+        .form-textarea {
+            padding: var(--space-3);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            transition: border-color var(--transition-fast);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .mood-selector {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+        
+        .mood-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            min-width: 80px;
+        }
+        
+        .mood-option:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .mood-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .mood-option input[type="radio"] {
+            display: none;
+        }
+        
+        .mood-icon {
+            font-size: var(--text-2xl);
+        }
+        
+        .mood-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .tag-input {
+            position: relative;
+        }
+        
+        .tag-suggestions {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+            flex-wrap: wrap;
+        }
+        
+        .tag-suggestion {
+            padding: var(--space-1) var(--space-3);
+            background-color: var(--gray-100);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .tag-suggestion:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            cursor: pointer;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked + .checkmark {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            color: var(--white);
+            font-size: var(--text-xs);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: var(--space-3);
+            justify-content: flex-end;
+        }
+        
+        .recent-memos {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .memos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .memos-header h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .memos-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .memo-item {
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .memo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2);
+        }
+        
+        .memo-title {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .memo-time {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .memo-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .memo-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .memo-mood {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .memo-tags {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .tag {
+            padding: var(--space-1) var(--space-2);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+        }
+        
+        .memo-stats {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .memo-stats h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-3);
+        }
+        
+        .stat-icon i {
+            color: var(--white);
+            font-size: var(--text-lg);
+        }
+        
+        .stat-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .final-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .date-header {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .date-meta {
+                text-align: left;
+            }
+            
+            .mood-selector {
+                justify-content: center;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .memo-meta {
+                flex-direction: column;
+                gap: var(--space-2);
+                align-items: flex-start;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

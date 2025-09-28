@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仲裁提案 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">AI仲裁提案</h1>
+                    <p class="page-subtitle">あなたたちの関係修復のための具体的な解決策を提案します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 解決策概要 -->
+            <div class="solution-overview">
+                <div class="overview-header">
+                    <h2>解決策概要</h2>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">主要解決策</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">具体的アクション</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4週間</div>
+                            <div class="stat-label">推奨期間</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overview-description">
+                    <p>AI分析の結果、あなたたちの関係改善には「コミュニケーションの質向上」「愛情表現の増加」「共通体験の創出」の3つのアプローチが効果的です。以下に具体的な解決策を提案します。</p>
+                </div>
+            </div>
+
+            <!-- 解決策一覧 -->
+            <div class="solutions-container">
+                <!-- 解決策1: コミュニケーション改善 -->
+                <div class="solution-card priority-high">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="solution-meta">
+                            <h3>コミュニケーション改善</h3>
+                            <div class="solution-priority">
+                                <span class="priority-badge high">最優先</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-content">
+                        <div class="solution-description">
+                            <p>日常的な会話の質を向上させ、お互いの気持ちを理解し合える関係を築きます。</p>
+                        </div>
+                        
+                        <div class="action-steps">
+                            <h4>具体的なアクション</h4>
+                            <div class="steps-list">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>毎日の振り返り時間</h5>
+                                        <p>寝る前に5分間、その日の出来事や気持ちを共有する時間を作りましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">5分/日</span>
+                                            <span class="step-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>週1回の深い対話</h5>
+                                        <p>スマートフォンを置いて、1時間程度の集中した対話時間を設けましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">1時間</span>
+                                            <span class="step-frequency">週1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>感謝の言葉を伝える</h5>
+                                        <p>相手の小さな行動に感謝の気持ちを言葉で表現しましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">1分</span>
+                                            <span class="step-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="solution-tools">
+                            <h4>推奨ツール</h4>
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>CouplePlan チャット機能</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>対話スケジュール管理</span>
+                                </div>
+                                <div class="tool-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>感謝メッセージ機能</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 解決策2: 愛情表現の増加 -->
+                <div class="solution-card priority-medium">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="solution-meta">
+                            <h3>愛情表現の増加</h3>
+                            <div class="solution-priority">
+                                <span class="priority-badge medium">重要</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-content">
+                        <div class="solution-description">
+                            <p>日常的な愛情表現を増やし、お互いへの愛情を再確認できる関係を築きます。</p>
+                        </div>
+                        
+                        <div class="action-steps">
+                            <h4>具体的なアクション</h4>
+                            <div class="steps-list">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>朝の挨拶とハグ</h5>
+                                        <p>毎朝、相手に「おはよう」とハグをして一日を始めましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">1分</span>
+                                            <span class="step-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>サプライズメッセージ</h5>
+                                        <p>相手の好きなことを思い出し、サプライズで愛情を表現しましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">5分</span>
+                                            <span class="step-frequency">週2回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>物理的な触れ合い</h5>
+                                        <p>手を繋ぐ、肩を触るなど、日常的な物理的な触れ合いを意識しましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">継続的</span>
+                                            <span class="step-frequency">毎日</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 解決策3: 共通体験の創出 -->
+                <div class="solution-card priority-medium">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-calendar-heart"></i>
+                        </div>
+                        <div class="solution-meta">
+                            <h3>共通体験の創出</h3>
+                            <div class="solution-priority">
+                                <span class="priority-badge medium">重要</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="solution-content">
+                        <div class="solution-description">
+                            <p>新しい体験を共有することで、関係性に新鮮さと深さをもたらします。</p>
+                        </div>
+                        
+                        <div class="action-steps">
+                            <h4>具体的なアクション</h4>
+                            <div class="steps-list">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h5>週末デートの計画</h5>
+                                        <p>毎週末、一緒に新しい場所や活動を体験するデートを計画しましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">2-4時間</span>
+                                            <span class="step-frequency">週1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h5>新しい趣味の共有</h5>
+                                        <p>お互いが興味を持つ新しい趣味や活動を一緒に始めましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">1-2時間</span>
+                                            <span class="step-frequency">週1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h5>旅行の計画</h5>
+                                        <p>月に1回、短い旅行や日帰り旅行を計画して、特別な時間を共有しましょう。</p>
+                                        <div class="step-details">
+                                            <span class="step-duration">1日</span>
+                                            <span class="step-frequency">月1回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 実装プラン -->
+            <div class="implementation-plan">
+                <h2>4週間実装プラン</h2>
+                <div class="plan-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-week">第1週</div>
+                        <div class="timeline-content">
+                            <h3>基盤作り</h3>
+                            <p>コミュニケーションの基本ルールを確立し、日常的な対話習慣を身につけます。</p>
+                            <div class="timeline-tasks">
+                                <span class="task-item">毎日の振り返り時間</span>
+                                <span class="task-item">朝の挨拶とハグ</span>
+                                <span class="task-item">感謝の言葉を伝える</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-week">第2週</div>
+                        <div class="timeline-content">
+                            <h3>深い対話の開始</h3>
+                            <p>週1回の深い対話を開始し、愛情表現を意識的に増やします。</p>
+                            <div class="timeline-tasks">
+                                <span class="task-item">週1回の深い対話</span>
+                                <span class="task-item">サプライズメッセージ</span>
+                                <span class="task-item">物理的な触れ合い</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-week">第3週</div>
+                        <div class="timeline-content">
+                            <h3>共通体験の開始</h3>
+                            <p>週末デートを計画し、新しい体験を共有し始めます。</p>
+                            <div class="timeline-tasks">
+                                <span class="task-item">週末デートの計画</span>
+                                <span class="task-item">新しい趣味の共有</span>
+                                <span class="task-item">継続的な対話</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-week">第4週</div>
+                        <div class="timeline-content">
+                            <h3>定着と発展</h3>
+                            <p>これまでの取り組みを定着させ、旅行などの特別な体験を計画します。</p>
+                            <div class="timeline-tasks">
+                                <span class="task-item">旅行の計画</span>
+                                <span class="task-item">習慣の定着</span>
+                                <span class="task-item">今後の計画</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 進捗追跡 -->
+            <div class="progress-tracking">
+                <h2>進捗追跡</h2>
+                <div class="tracking-options">
+                    <div class="tracking-card">
+                        <div class="tracking-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="tracking-content">
+                            <h3>自動進捗追跡</h3>
+                            <p>AIがあなたたちの活動を分析し、進捗を自動的に追跡します。</p>
+                            <button class="btn btn-primary" onclick="enableAutoTracking()">
+                                <i class="fas fa-check"></i>
+                                有効にする
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="tracking-card">
+                        <div class="tracking-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="tracking-content">
+                            <h3>手動チェックイン</h3>
+                            <p>週1回、お互いの進捗を確認し合う時間を設けます。</p>
+                            <button class="btn btn-outline" onclick="setupManualTracking()">
+                                <i class="fas fa-calendar"></i>
+                                スケジュール設定
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- アクション -->
+            <div class="solution-actions">
+                <div class="action-left">
+                    <button class="btn btn-outline" onclick="saveSolution()">
+                        <i class="fas fa-save"></i>
+                        解決策を保存
+                    </button>
+                    <button class="btn btn-outline" onclick="shareSolution()">
+                        <i class="fas fa-share"></i>
+                        パートナーと共有
+                    </button>
+                </div>
+                <div class="action-right">
+                    <button class="btn btn-primary" onclick="startImplementation()">
+                        <i class="fas fa-play"></i>
+                        実装を開始
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSolution();
+        });
+        
+        function initializeSolution() {
+            // 解決策の初期化
+            loadSolutionData();
+        }
+        
+        function loadSolutionData() {
+            // 実際の実装ではAPIから解決策データを取得
+            console.log('解決策データを読み込みました');
+        }
+        
+        function enableAutoTracking() {
+            showSuccess('自動進捗追跡を有効にしました');
+        }
+        
+        function setupManualTracking() {
+            showInfo('手動チェックインのスケジュールを設定しました');
+        }
+        
+        function saveSolution() {
+            showSuccess('解決策を保存しました');
+        }
+        
+        function shareSolution() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'AI仲裁提案',
+                    text: '私たちの関係修復のための解決策を共有します',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showSuccess('解決策のリンクをコピーしました');
+            }
+        }
+        
+        function startImplementation() {
+            showSuccess('実装を開始しました');
+            setTimeout(() => {
+                window.location.href = '../common/COMMON-001.html';
+            }, 1000);
+        }
+    </script>
+    
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .page-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .solution-overview {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .overview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .overview-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .overview-stats {
+            display: flex;
+            gap: var(--space-6);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .overview-description {
+            background-color: var(--gray-50);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+        }
+        
+        .overview-description p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .solutions-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .solution-card {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            border-left: 4px solid transparent;
+        }
+        
+        .solution-card.priority-high {
+            border-left-color: #ef4444;
+        }
+        
+        .solution-card.priority-medium {
+            border-left-color: #f59e0b;
+        }
+        
+        .solution-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-6);
+        }
+        
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .solution-icon i {
+            font-size: var(--text-2xl);
+            color: var(--white);
+        }
+        
+        .solution-meta {
+            flex: 1;
+        }
+        
+        .solution-meta h3 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .solution-priority {
+            display: flex;
+            gap: var(--space-2);
+        }
+        
+        .priority-badge {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .priority-badge.high {
+            background-color: #ef4444;
+            color: var(--white);
+        }
+        
+        .priority-badge.medium {
+            background-color: #f59e0b;
+            color: var(--white);
+        }
+        
+        .solution-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .solution-description {
+            background-color: var(--gray-50);
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+        }
+        
+        .solution-description p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .action-steps h4,
+        .solution-tools h4 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .step-item {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h5 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .step-details {
+            display: flex;
+            gap: var(--space-4);
+        }
+        
+        .step-duration,
+        .step-frequency {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            background-color: var(--white);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-md);
+        }
+        
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+        
+        .tool-item i {
+            color: var(--primary-color);
+        }
+        
+        .implementation-plan {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .implementation-plan h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .plan-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: var(--space-6);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .timeline-week {
+            width: 80px;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-content h3 {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .timeline-tasks {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+        
+        .task-item {
+            background-color: var(--white);
+            color: var(--text-secondary);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+        }
+        
+        .progress-tracking {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .progress-tracking h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .tracking-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .tracking-card {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .tracking-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .tracking-icon i {
+            font-size: var(--text-xl);
+            color: var(--white);
+        }
+        
+        .tracking-content {
+            flex: 1;
+        }
+        
+        .tracking-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .tracking-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .solution-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-6);
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .action-left,
+        .action-right {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .overview-header {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .overview-stats {
+                justify-content: center;
+            }
+            
+            .solution-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-item {
+                flex-direction: column;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-week {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .tracking-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .tracking-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .solution-actions {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .action-left,
+            .action-right {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>

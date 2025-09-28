@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信確認 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">送信確認</h1>
+                    <p class="page-subtitle">感謝メッセージの送信内容を確認してください</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 送信内容プレビュー -->
+            <div class="message-preview">
+                <div class="preview-header">
+                    <h2>送信内容プレビュー</h2>
+                    <p>パートナーに送信されるメッセージです</p>
+                </div>
+                
+                <div class="preview-content">
+                    <div class="message-card">
+                        <div class="message-header">
+                            <div class="sender-info">
+                                <div class="sender-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="sender-details">
+                                    <h3>あなたから</h3>
+                                    <span class="send-time">今すぐ送信</span>
+                                </div>
+                            </div>
+                            <div class="message-type">
+                                <span class="type-badge">
+                                    <i class="fas fa-heart"></i>
+                                    感謝メッセージ
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="message-body">
+                            <div class="message-text">
+                                <p>今日のデート、本当にありがとう！</p>
+                                <p>東京タワーからの景色を一緒に見られたことが、私にとって最高の思い出になりました。あなたと過ごす時間は、いつも特別で大切です。</p>
+                                <p>これからも一緒に素敵な時間を過ごしていきましょう。</p>
+                            </div>
+                            
+                            <div class="message-attachments">
+                                <div class="attachment-item">
+                                    <i class="fas fa-image"></i>
+                                    <span>デートの写真 (3枚)</span>
+                                </div>
+                                <div class="attachment-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>東京タワー</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message-footer">
+                            <div class="message-tags">
+                                <span class="tag">ロマンチック</span>
+                                <span class="tag">感謝</span>
+                                <span class="tag">思い出</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 送信設定 -->
+            <div class="send-settings">
+                <h2>送信設定</h2>
+                
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-header">
+                            <h3>送信タイミング</h3>
+                            <div class="timing-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="timing" value="now" checked>
+                                    <span class="radio-mark"></span>
+                                    今すぐ送信
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="timing" value="scheduled">
+                                    <span class="radio-mark"></span>
+                                    予約送信
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="scheduled-time" id="scheduledTime" style="display: none;">
+                            <input type="datetime-local" class="form-input" value="2025-01-25T20:00">
+                            <p class="help-text">指定した時間に自動で送信されます</p>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-header">
+                            <h3>送信方法</h3>
+                            <div class="delivery-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="delivery" value="app" checked>
+                                    <span class="checkmark"></span>
+                                    CouplePlanアプリ内
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="delivery" value="email">
+                                    <span class="checkmark"></span>
+                                    メール
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="delivery" value="sms">
+                                    <span class="checkmark"></span>
+                                    SMS
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <div class="setting-header">
+                            <h3>通知設定</h3>
+                            <div class="notification-options">
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="notification" value="push" checked>
+                                    <span class="checkmark"></span>
+                                    プッシュ通知
+                                </label>
+                                <label class="checkbox-option">
+                                    <input type="checkbox" name="notification" value="email">
+                                    <span class="checkmark"></span>
+                                    メール通知
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 送信履歴 -->
+            <div class="send-history">
+                <h2>最近の送信履歴</h2>
+                
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>感謝メッセージ</h4>
+                            <p>「今日のデート、本当に楽しかった！」</p>
+                            <span class="history-time">2日前</span>
+                        </div>
+                        <div class="history-status">
+                            <span class="status-badge delivered">配信済み</span>
+                        </div>
+                    </div>
+                    
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>サプライズメッセージ</h4>
+                            <p>「お疲れ様！今日もありがとう」</p>
+                            <span class="history-time">1週間前</span>
+                        </div>
+                        <div class="history-status">
+                            <span class="status-badge delivered">配信済み</span>
+                        </div>
+                    </div>
+                    
+                    <div class="history-item">
+                        <div class="history-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="history-content">
+                            <h4>記念日メッセージ</h4>
+                            <p>「付き合って1年、ありがとう」</p>
+                            <span class="history-time">2週間前</span>
+                        </div>
+                        <div class="history-status">
+                            <span class="status-badge delivered">配信済み</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 送信統計 -->
+            <div class="send-stats">
+                <h2>送信統計</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">24</div>
+                            <div class="stat-label">総送信数</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">18</div>
+                            <div class="stat-label">感謝メッセージ</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">返信数</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">返信率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終アクション -->
+            <div class="final-actions">
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="editMessage()">
+                        <i class="fas fa-edit"></i>
+                        メッセージを編集
+                    </button>
+                    <button class="btn btn-primary" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                        送信する
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSendConfirmation();
+        });
+        
+        function initializeSendConfirmation() {
+            // 送信確認画面の初期化
+            setupTimingOptions();
+            setupDeliveryOptions();
+            setupNotificationOptions();
+        }
+        
+        function setupTimingOptions() {
+            // 送信タイミングの設定
+            document.querySelectorAll('input[name="timing"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const scheduledTime = document.getElementById('scheduledTime');
+                    if (this.value === 'scheduled') {
+                        scheduledTime.style.display = 'block';
+                    } else {
+                        scheduledTime.style.display = 'none';
+                    }
+                });
+            });
+        }
+        
+        function setupDeliveryOptions() {
+            // 送信方法の設定
+            console.log('送信方法を設定しました');
+        }
+        
+        function setupNotificationOptions() {
+            // 通知設定の設定
+            console.log('通知設定を設定しました');
+        }
+        
+        function editMessage() {
+            showInfo('メッセージを編集します');
+            setTimeout(() => {
+                window.location.href = 'UC006-003.html';
+            }, 500);
+        }
+        
+        function sendMessage() {
+            const timing = document.querySelector('input[name="timing"]:checked').value;
+            const deliveryMethods = Array.from(document.querySelectorAll('input[name="delivery"]:checked')).map(cb => cb.value);
+            const notifications = Array.from(document.querySelectorAll('input[name="notification"]:checked')).map(cb => cb.value);
+            
+            showInfo('メッセージを送信しています...');
+            setTimeout(() => {
+                showSuccess('メッセージが送信されました');
+                setTimeout(() => {
+                    window.location.href = 'UC006-005.html';
+                }, 1000);
+            }, 2000);
+        }
+    </script>
+    
+    <style>
+        .message-preview {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .preview-header {
+            text-align: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .preview-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .preview-header p {
+            color: var(--text-secondary);
+        }
+        
+        .preview-content {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .message-card {
+            max-width: 500px;
+            width: 100%;
+            background-color: var(--gray-50);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .sender-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .sender-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+        
+        .sender-details h3 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .send-time {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .message-type {
+            display: flex;
+            align-items: center;
+        }
+        
+        .type-badge {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .message-body {
+            margin-bottom: var(--space-4);
+        }
+        
+        .message-text {
+            margin-bottom: var(--space-4);
+        }
+        
+        .message-text p {
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: var(--space-2);
+        }
+        
+        .message-attachments {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-3);
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .attachment-item i {
+            color: var(--primary-color);
+        }
+        
+        .message-footer {
+            padding-top: var(--space-3);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .message-tags {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            padding: var(--space-1) var(--space-2);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+        }
+        
+        .send-settings {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .send-settings h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .settings-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+        
+        .setting-item {
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .setting-header h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-4);
+        }
+        
+        .timing-options,
+        .delivery-options,
+        .notification-options {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            cursor: pointer;
+        }
+        
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            display: none;
+        }
+        
+        .radio-mark,
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+        
+        .radio-mark {
+            border-radius: var(--radius-full);
+        }
+        
+        .radio-option input[type="radio"]:checked + .radio-mark {
+            border-color: var(--primary-color);
+        }
+        
+        .radio-option input[type="radio"]:checked + .radio-mark::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: var(--radius-full);
+        }
+        
+        .checkbox-option input[type="checkbox"]:checked + .checkmark {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .checkbox-option input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            color: var(--white);
+            font-size: var(--text-xs);
+        }
+        
+        .scheduled-time {
+            margin-top: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+        }
+        
+        .help-text {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-top: var(--space-2);
+        }
+        
+        .send-history {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .send-history h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .history-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .history-content {
+            flex: 1;
+        }
+        
+        .history-content h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .history-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-1);
+        }
+        
+        .history-time {
+            color: var(--text-secondary);
+            font-size: var(--text-xs);
+        }
+        
+        .history-status {
+            flex-shrink: 0;
+        }
+        
+        .status-badge {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .status-badge.delivered {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .send-stats {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .send-stats h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-3);
+        }
+        
+        .stat-icon i {
+            color: var(--white);
+            font-size: var(--text-lg);
+        }
+        
+        .stat-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .final-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .timing-options,
+            .delivery-options,
+            .notification-options {
+                flex-direction: column;
+            }
+            
+            .history-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-3);
+            }
+            
+            .history-status {
+                align-self: flex-end;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

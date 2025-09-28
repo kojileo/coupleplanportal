@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>効果測定 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">効果測定</h1>
+                    <p class="page-subtitle">メッセージ送信の効果を分析・測定します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 送信完了 -->
+            <div class="send-completion">
+                <div class="completion-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="completion-content">
+                    <h2>メッセージが送信されました！</h2>
+                    <p>パートナーに感謝メッセージが届きました</p>
+                    <div class="completion-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>送信時刻: 2025年1月25日 18:30</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>送信方法: CouplePlanアプリ内</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-bell"></i>
+                            <span>通知: プッシュ通知送信済み</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- リアルタイム効果 -->
+            <div class="realtime-effects">
+                <h2>リアルタイム効果</h2>
+                
+                <div class="effects-grid">
+                    <div class="effect-card">
+                        <div class="effect-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="effect-content">
+                            <div class="effect-value">未読</div>
+                            <div class="effect-label">開封状況</div>
+                            <div class="effect-status">
+                                <span class="status-dot pending"></span>
+                                <span>未開封</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="effect-card">
+                        <div class="effect-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="effect-content">
+                            <div class="effect-value">-</div>
+                            <div class="effect-label">感情反応</div>
+                            <div class="effect-status">
+                                <span class="status-dot pending"></span>
+                                <span>反応待ち</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="effect-card">
+                        <div class="effect-icon">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <div class="effect-content">
+                            <div class="effect-value">-</div>
+                            <div class="effect-label">返信</div>
+                            <div class="effect-status">
+                                <span class="status-dot pending"></span>
+                                <span>返信待ち</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="effect-card">
+                        <div class="effect-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="effect-content">
+                            <div class="effect-value">測定中</div>
+                            <div class="effect-label">関係性スコア</div>
+                            <div class="effect-status">
+                                <span class="status-dot measuring"></span>
+                                <span>分析中</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 過去の効果分析 -->
+            <div class="historical-effects">
+                <h2>過去の効果分析</h2>
+                
+                <div class="analysis-charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>送信頻度と関係性スコア</h3>
+                            <div class="chart-period">
+                                <select class="period-select">
+                                    <option value="week">過去1週間</option>
+                                    <option value="month" selected>過去1ヶ月</option>
+                                    <option value="quarter">過去3ヶ月</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>関係性スコアの推移グラフ</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>メッセージタイプ別効果</h3>
+                        </div>
+                        
+                        <div class="effect-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">感謝メッセージ</div>
+                                <div class="breakdown-bar">
+                                    <div class="bar-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="breakdown-value">85%</div>
+                            </div>
+                            
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">サプライズメッセージ</div>
+                                <div class="breakdown-bar">
+                                    <div class="bar-fill" style="width: 92%"></div>
+                                </div>
+                                <div class="breakdown-value">92%</div>
+                            </div>
+                            
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">記念日メッセージ</div>
+                                <div class="breakdown-bar">
+                                    <div class="bar-fill" style="width: 78%"></div>
+                                </div>
+                                <div class="breakdown-value">78%</div>
+                            </div>
+                            
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">日常メッセージ</div>
+                                <div class="bar-fill" style="width: 65%"></div>
+                                <div class="breakdown-value">65%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- パートナーの反応 -->
+            <div class="partner-reactions">
+                <h2>パートナーの反応</h2>
+                
+                <div class="reactions-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">18:30</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="timeline-details">
+                                <h4>メッセージを送信</h4>
+                                <p>感謝メッセージが送信されました</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">18:32</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="timeline-details">
+                                <h4>通知を送信</h4>
+                                <p>プッシュ通知が送信されました</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pending">
+                        <div class="timeline-time">-</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="timeline-details">
+                                <h4>メッセージを開封</h4>
+                                <p>パートナーがメッセージを確認</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pending">
+                        <div class="timeline-time">-</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="timeline-details">
+                                <h4>感情反応</h4>
+                                <p>パートナーの感情反応を検出</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pending">
+                        <div class="timeline-time">-</div>
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <i class="fas fa-reply"></i>
+                            </div>
+                            <div class="timeline-details">
+                                <h4>返信</h4>
+                                <p>パートナーからの返信</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 改善提案 -->
+            <div class="improvement-suggestions">
+                <h2>改善提案</h2>
+                
+                <div class="suggestions-grid">
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="suggestion-content">
+                            <h3>送信タイミングの最適化</h3>
+                            <p>パートナーが最も反応しやすい時間帯（19:00-21:00）に送信することをお勧めします</p>
+                            <div class="suggestion-action">
+                                <button class="btn btn-outline" onclick="optimizeTiming()">
+                                    <i class="fas fa-magic"></i>
+                                    最適化
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="suggestion-content">
+                            <h3>メッセージスタイルの多様化</h3>
+                            <p>絵文字や写真を活用したメッセージで、より感情豊かなコミュニケーションを実現できます</p>
+                            <div class="suggestion-action">
+                                <button class="btn btn-outline" onclick="diversifyStyle()">
+                                    <i class="fas fa-paint-brush"></i>
+                                    スタイル変更
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-card">
+                        <div class="suggestion-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="suggestion-content">
+                            <h3>定期的なメッセージ送信</h3>
+                            <p>週に2-3回の定期的なメッセージ送信で、関係性をより深くできます</p>
+                            <div class="suggestion-action">
+                                <button class="btn btn-outline" onclick="scheduleRegular()">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    スケジュール設定
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終アクション -->
+            <div class="final-actions">
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="viewDashboard()">
+                        <i class="fas fa-home"></i>
+                        ダッシュボードに戻る
+                    </button>
+                    <button class="btn btn-primary" onclick="sendAnother()">
+                        <i class="fas fa-paper-plane"></i>
+                        別のメッセージを送信
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEffectMeasurement();
+        });
+        
+        function initializeEffectMeasurement() {
+            // 効果測定画面の初期化
+            setupRealTimeUpdates();
+            setupEffectCharts();
+            setupImprovementSuggestions();
+        }
+        
+        function setupRealTimeUpdates() {
+            // リアルタイム更新の設定
+            console.log('リアルタイム更新を設定しました');
+            
+            // シミュレーション: 5秒後に開封
+            setTimeout(() => {
+                updateEffectStatus('read', '開封済み');
+            }, 5000);
+            
+            // シミュレーション: 10秒後に感情反応
+            setTimeout(() => {
+                updateEffectStatus('emotion', '😍 嬉しい');
+            }, 10000);
+            
+            // シミュレーション: 15秒後に返信
+            setTimeout(() => {
+                updateEffectStatus('reply', '返信済み');
+            }, 15000);
+        }
+        
+        function setupEffectCharts() {
+            // 効果チャートの設定
+            console.log('効果チャートを設定しました');
+        }
+        
+        function setupImprovementSuggestions() {
+            // 改善提案の設定
+            console.log('改善提案を設定しました');
+        }
+        
+        function updateEffectStatus(type, status) {
+            const effectCards = document.querySelectorAll('.effect-card');
+            effectCards.forEach(card => {
+                const icon = card.querySelector('.effect-icon i');
+                if (type === 'read' && icon.classList.contains('fa-eye')) {
+                    const value = card.querySelector('.effect-value');
+                    const statusElement = card.querySelector('.effect-status span:last-child');
+                    const statusDot = card.querySelector('.status-dot');
+                    
+                    value.textContent = '開封済み';
+                    statusElement.textContent = status;
+                    statusDot.classList.remove('pending');
+                    statusDot.classList.add('completed');
+                }
+            });
+            
+            showInfo(`効果が更新されました: ${status}`);
+        }
+        
+        function optimizeTiming() {
+            showInfo('送信タイミングを最適化しています...');
+            setTimeout(() => {
+                showSuccess('送信タイミングが最適化されました');
+            }, 1000);
+        }
+        
+        function diversifyStyle() {
+            showInfo('メッセージスタイルを多様化しています...');
+            setTimeout(() => {
+                showSuccess('メッセージスタイルが更新されました');
+            }, 1000);
+        }
+        
+        function scheduleRegular() {
+            showInfo('定期的なメッセージ送信をスケジュールしています...');
+            setTimeout(() => {
+                showSuccess('スケジュールが設定されました');
+            }, 1000);
+        }
+        
+        function viewDashboard() {
+            window.location.href = '../common/COMMON-001.html';
+        }
+        
+        function sendAnother() {
+            showInfo('新しいメッセージを作成します');
+            setTimeout(() => {
+                window.location.href = 'UC006-001.html';
+            }, 500);
+        }
+    </script>
+    
+    <style>
+        .send-completion {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+        
+        .completion-icon {
+            flex-shrink: 0;
+        }
+        
+        .completion-icon i {
+            font-size: var(--text-6xl);
+            color: var(--white);
+        }
+        
+        .completion-content h2 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+        
+        .completion-content p {
+            font-size: var(--text-lg);
+            opacity: 0.9;
+            margin-bottom: var(--space-4);
+        }
+        
+        .completion-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+        
+        .detail-item i {
+            width: 16px;
+        }
+        
+        .realtime-effects {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .realtime-effects h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .effect-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .effect-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .effect-icon i {
+            color: var(--white);
+            font-size: var(--text-xl);
+        }
+        
+        .effect-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .effect-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        
+        .effect-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-size: var(--text-sm);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: var(--radius-full);
+        }
+        
+        .status-dot.pending {
+            background-color: #f59e0b;
+        }
+        
+        .status-dot.completed {
+            background-color: #10b981;
+        }
+        
+        .status-dot.measuring {
+            background-color: var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .historical-effects {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .historical-effects h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .analysis-charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-8);
+        }
+        
+        .chart-container {
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .chart-header h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .period-select {
+            padding: var(--space-2) var(--space-3);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            background-color: var(--white);
+            color: var(--text-primary);
+            font-size: var(--text-sm);
+        }
+        
+        .chart-placeholder {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+        }
+        
+        .chart-placeholder i {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-2);
+        }
+        
+        .effect-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .breakdown-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .breakdown-label {
+            min-width: 120px;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .breakdown-bar {
+            flex: 1;
+            height: 8px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            transition: width 0.3s ease;
+        }
+        
+        .breakdown-value {
+            min-width: 40px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .partner-reactions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .partner-reactions h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .reactions-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .timeline-item.pending {
+            opacity: 0.6;
+        }
+        
+        .timeline-time {
+            min-width: 60px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: var(--text-sm);
+        }
+        
+        .timeline-content {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            flex: 1;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .timeline-details h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .timeline-details p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .improvement-suggestions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .improvement-suggestions h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .suggestion-card {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .suggestion-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .suggestion-content {
+            flex: 1;
+        }
+        
+        .suggestion-content h3 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .suggestion-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-3);
+        }
+        
+        .suggestion-action {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .final-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .send-completion {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .effects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .analysis-charts {
+                grid-template-columns: 1fr;
+            }
+            
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .suggestion-card {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

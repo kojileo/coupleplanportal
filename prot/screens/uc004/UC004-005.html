@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>進捗追跡 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">進捗追跡</h1>
+                    <p class="page-subtitle">関係修復の進捗状況を追跡・分析します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 進捗サマリー -->
+            <div class="progress-summary">
+                <div class="summary-header">
+                    <h2>進捗サマリー</h2>
+                    <div class="summary-date">
+                        <span>開始日: 2025年1月20日</span>
+                        <span>経過: 5日</span>
+                    </div>
+                </div>
+                
+                <div class="summary-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">35%</div>
+                            <div class="stat-label">全体進捗</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">4</div>
+                            <div class="stat-label">完了タスク</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">72</div>
+                            <div class="stat-label">関係性スコア</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">残り週数</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- フェーズ別進捗 -->
+            <div class="phase-progress">
+                <h2>フェーズ別進捗</h2>
+                
+                <div class="phases-list">
+                    <!-- フェーズ1 -->
+                    <div class="phase-item active">
+                        <div class="phase-header">
+                            <div class="phase-info">
+                                <h3>関係の修復</h3>
+                                <p>基本的な信頼関係を再構築</p>
+                            </div>
+                            <div class="phase-progress-bar">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-text">60%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-tasks">
+                            <div class="task-item completed">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>毎日の短時間対話</h4>
+                                    <p>10分間の日常会話を毎日実施</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge completed">完了</span>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item completed">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>感謝の表現</h4>
+                                    <p>お互いの良い点を伝え合う</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge completed">完了</span>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item in-progress">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>週末の時間共有</h4>
+                                    <p>一緒に過ごす時間を確保</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge in-progress">進行中</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フェーズ2 -->
+                    <div class="phase-item">
+                        <div class="phase-header">
+                            <div class="phase-info">
+                                <h3>理解の深化</h3>
+                                <p>お互いの価値観や感情を深く理解</p>
+                            </div>
+                            <div class="phase-progress-bar">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 20%"></div>
+                                </div>
+                                <span class="progress-text">20%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-tasks">
+                            <div class="task-item pending">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>価値観の共有</h4>
+                                    <p>お互いの価値観について話し合う</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge pending">未開始</span>
+                                </div>
+                            </div>
+                            
+                            <div class="task-item pending">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-circle"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>相互サポート</h4>
+                                    <p>お互いの目標や悩みをサポート</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge pending">未開始</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- フェーズ3 -->
+                    <div class="phase-item">
+                        <div class="phase-header">
+                            <div class="phase-info">
+                                <h3>関係の強化</h3>
+                                <p>より深い絆と信頼関係を構築</p>
+                            </div>
+                            <div class="phase-progress-bar">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="progress-text">0%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="phase-tasks">
+                            <div class="task-item locked">
+                                <div class="task-checkbox">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>特別な体験</h4>
+                                    <p>旅行やイベントで特別な時間を共有</p>
+                                </div>
+                                <div class="task-status">
+                                    <span class="status-badge locked">ロック</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 関係性スコアの推移 -->
+            <div class="score-trend">
+                <h2>関係性スコアの推移</h2>
+                
+                <div class="trend-chart">
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>スコア推移グラフ</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trend-stats">
+                        <div class="trend-item">
+                            <div class="trend-label">開始時</div>
+                            <div class="trend-value">65</div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-label">現在</div>
+                            <div class="trend-value">72</div>
+                        </div>
+                        <div class="trend-item">
+                            <div class="trend-label">目標</div>
+                            <div class="trend-value">85</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近の活動 -->
+            <div class="recent-activities">
+                <h2>最近の活動</h2>
+                
+                <div class="activities-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>毎日の対話を実施</h4>
+                            <p>10分間の日常会話を完了</p>
+                            <span class="activity-time">2時間前</span>
+                        </div>
+                        <div class="activity-status">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>感謝メッセージを送信</h4>
+                            <p>パートナーへの感謝を伝える</p>
+                            <span class="activity-time">1日前</span>
+                        </div>
+                        <div class="activity-status">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>週末の時間共有</h4>
+                            <p>一緒に過ごす時間を確保</p>
+                            <span class="activity-time">2日前</span>
+                        </div>
+                        <div class="activity-status">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 次のアクション -->
+            <div class="next-actions">
+                <h2>次のアクション</h2>
+                
+                <div class="actions-list">
+                    <div class="action-item">
+                        <div class="action-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>価値観の共有セッション</h4>
+                            <p>お互いの価値観について話し合う</p>
+                            <div class="action-meta">
+                                <span class="action-duration">30分</span>
+                                <span class="action-priority high">高優先度</span>
+                            </div>
+                        </div>
+                        <div class="action-button">
+                            <button class="btn btn-primary" onclick="startAction()">
+                                開始
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="action-item">
+                        <div class="action-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="action-content">
+                            <h4>相互サポート活動</h4>
+                            <p>お互いの目標や悩みをサポート</p>
+                            <div class="action-meta">
+                                <span class="action-duration">20分</span>
+                                <span class="action-priority medium">中優先度</span>
+                            </div>
+                        </div>
+                        <div class="action-button">
+                            <button class="btn btn-outline" onclick="scheduleAction()">
+                                予約
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終アクション -->
+            <div class="final-actions">
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" onclick="exportReport()">
+                        <i class="fas fa-download"></i>
+                        レポートをエクスポート
+                    </button>
+                    <button class="btn btn-primary" onclick="continueRepair()">
+                        <i class="fas fa-heart"></i>
+                        修復を続行
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProgressTracking();
+        });
+        
+        function initializeProgressTracking() {
+            // 進捗追跡画面の初期化
+            setupProgressCharts();
+            setupActivityTracking();
+        }
+        
+        function setupProgressCharts() {
+            // 進捗チャートの設定
+            console.log('進捗チャートを設定しました');
+        }
+        
+        function setupActivityTracking() {
+            // 活動追跡の設定
+            console.log('活動追跡を設定しました');
+        }
+        
+        function startAction() {
+            showInfo('アクションを開始します');
+        }
+        
+        function scheduleAction() {
+            showInfo('アクションを予約します');
+        }
+        
+        function exportReport() {
+            showInfo('レポートをエクスポートしています...');
+            setTimeout(() => {
+                showSuccess('レポートをエクスポートしました');
+            }, 1000);
+        }
+        
+        function continueRepair() {
+            showInfo('関係修復を続行します');
+            setTimeout(() => {
+                window.location.href = 'UC004-004.html';
+            }, 1000);
+        }
+    </script>
+    
+    <style>
+        .progress-summary {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .summary-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .summary-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .summary-date {
+            display: flex;
+            gap: var(--space-4);
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--text-xl);
+        }
+        
+        .stat-content {
+            flex: 1;
+        }
+        
+        .stat-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-1);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .phase-progress {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .phase-progress h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .phases-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .phase-item {
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            transition: all var(--transition-fast);
+        }
+        
+        .phase-item.active {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .phase-info h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .phase-info p {
+            color: var(--text-secondary);
+        }
+        
+        .phase-progress-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            transition: width 0.3s ease;
+        }
+        
+        .progress-text {
+            font-weight: 600;
+            color: var(--primary-color);
+            min-width: 40px;
+        }
+        
+        .phase-tasks {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .task-item.completed .task-checkbox {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .task-item.in-progress .task-checkbox {
+            background-color: #f59e0b;
+            color: var(--white);
+        }
+        
+        .task-item.pending .task-checkbox {
+            background-color: var(--gray-300);
+            color: var(--text-secondary);
+        }
+        
+        .task-item.locked .task-checkbox {
+            background-color: var(--gray-400);
+            color: var(--white);
+        }
+        
+        .task-content {
+            flex: 1;
+        }
+        
+        .task-content h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .task-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .task-status {
+            flex-shrink: 0;
+        }
+        
+        .status-badge {
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .status-badge.completed {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .status-badge.in-progress {
+            background-color: #f59e0b;
+            color: var(--white);
+        }
+        
+        .status-badge.pending {
+            background-color: var(--gray-300);
+            color: var(--text-secondary);
+        }
+        
+        .status-badge.locked {
+            background-color: var(--gray-400);
+            color: var(--white);
+        }
+        
+        .score-trend {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .score-trend h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .trend-chart {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-8);
+        }
+        
+        .chart-container {
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chart-placeholder {
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        
+        .chart-placeholder i {
+            font-size: var(--text-4xl);
+            margin-bottom: var(--space-2);
+        }
+        
+        .trend-stats {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .trend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-3);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .trend-label {
+            color: var(--text-secondary);
+        }
+        
+        .trend-value {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .recent-activities {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .recent-activities h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .activities-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-content h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .activity-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-1);
+        }
+        
+        .activity-time {
+            color: var(--text-secondary);
+            font-size: var(--text-xs);
+        }
+        
+        .activity-status {
+            color: #10b981;
+            font-size: var(--text-lg);
+        }
+        
+        .next-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .next-actions h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+        }
+        
+        .actions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .action-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .action-content {
+            flex: 1;
+        }
+        
+        .action-content h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .action-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+        
+        .action-meta {
+            display: flex;
+            gap: var(--space-3);
+        }
+        
+        .action-duration {
+            font-size: var(--text-xs);
+            color: var(--text-secondary);
+            background-color: var(--white);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-md);
+        }
+        
+        .action-priority {
+            font-size: var(--text-xs);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-md);
+            font-weight: 500;
+        }
+        
+        .action-priority.high {
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+        
+        .action-priority.medium {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        
+        .action-button {
+            flex-shrink: 0;
+        }
+        
+        .final-actions {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .summary-header {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            .summary-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .phase-header {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .trend-chart {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>

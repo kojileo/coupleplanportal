@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仲裁依頼 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">AI仲裁依頼</h1>
+                    <p class="page-subtitle">AIがあなたたちの関係を分析し、最適な解決策を提案します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 仲裁依頼フォーム -->
+            <div class="mediation-form-container">
+                <form class="mediation-form" id="mediationForm">
+                    <!-- ステップ1: 基本情報 -->
+                    <div class="form-step active" id="step1">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h2>基本情報</h2>
+                                <p>あなたとパートナーの基本情報を教えてください</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="relationshipDuration" class="form-label">交際期間</label>
+                                    <select id="relationshipDuration" name="relationshipDuration" class="form-select" required>
+                                        <option value="">選択してください</option>
+                                        <option value="less-than-1">1年未満</option>
+                                        <option value="1-2">1〜2年</option>
+                                        <option value="2-3">2〜3年</option>
+                                        <option value="3-5">3〜5年</option>
+                                        <option value="5-10">5〜10年</option>
+                                        <option value="more-than-10">10年以上</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="livingSituation" class="form-label">同居状況</label>
+                                    <div class="radio-group">
+                                        <div class="form-radio">
+                                            <input type="radio" id="living-together" name="livingSituation" value="together">
+                                            <label for="living-together">同居している</label>
+                                        </div>
+                                        <div class="form-radio">
+                                            <input type="radio" id="living-separate" name="livingSituation" value="separate">
+                                            <label for="living-separate">別居している</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="conflictFrequency" class="form-label">最近の喧嘩の頻度</label>
+                                    <select id="conflictFrequency" name="conflictFrequency" class="form-select" required>
+                                        <option value="">選択してください</option>
+                                        <option value="daily">毎日</option>
+                                        <option value="weekly">週に数回</option>
+                                        <option value="monthly">月に数回</option>
+                                        <option value="rarely">ほとんどない</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="relationshipSatisfaction" class="form-label">現在の関係満足度</label>
+                                    <div class="rating-slider">
+                                        <input type="range" id="relationshipSatisfaction" name="relationshipSatisfaction" min="1" max="10" value="5" class="slider">
+                                        <div class="slider-labels">
+                                            <span>1（非常に不満）</span>
+                                            <span>10（非常に満足）</span>
+                                        </div>
+                                        <div class="slider-value">
+                                            <span id="satisfactionValue">5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ステップ2: 問題の詳細 -->
+                    <div class="form-step" id="step2">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h2>問題の詳細</h2>
+                                <p>現在の状況や問題について詳しく教えてください</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="conflictType" class="form-label">主な問題の種類</label>
+                                <div class="checkbox-group">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-communication" name="conflictType" value="communication">
+                                        <label for="type-communication">コミュニケーション</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-finance" name="conflictType" value="finance">
+                                        <label for="type-finance">お金・将来設計</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-family" name="conflictType" value="family">
+                                        <label for="type-family">家族・友人関係</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-work" name="conflictType" value="work">
+                                        <label for="type-work">仕事・時間</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-lifestyle" name="conflictType" value="lifestyle">
+                                        <label for="type-lifestyle">生活スタイル</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-trust" name="conflictType" value="trust">
+                                        <label for="type-trust">信頼関係</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-intimacy" name="conflictType" value="intimacy">
+                                        <label for="type-intimacy">親密さ・愛情</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="type-other" name="conflictType" value="other">
+                                        <label for="type-other">その他</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="conflictDescription" class="form-label">問題の詳細</label>
+                                <textarea id="conflictDescription" name="conflictDescription" class="form-textarea" placeholder="現在の状況や問題について詳しく教えてください" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="emotions" class="form-label">現在の気持ち</label>
+                                <div class="emotion-selector">
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-sad" name="emotions" value="sad">
+                                        <label for="emotion-sad">
+                                            <i class="fas fa-frown"></i>
+                                            <span>悲しい</span>
+                                        </label>
+                                    </div>
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-angry" name="emotions" value="angry">
+                                        <label for="emotion-angry">
+                                            <i class="fas fa-angry"></i>
+                                            <span>怒り</span>
+                                        </label>
+                                    </div>
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-frustrated" name="emotions" value="frustrated">
+                                        <label for="emotion-frustrated">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>イライラ</span>
+                                        </label>
+                                    </div>
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-lonely" name="emotions" value="lonely">
+                                        <label for="emotion-lonely">
+                                            <i class="fas fa-user-times"></i>
+                                            <span>孤独</span>
+                                        </label>
+                                    </div>
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-confused" name="emotions" value="confused">
+                                        <label for="emotion-confused">
+                                            <i class="fas fa-question-circle"></i>
+                                            <span>混乱</span>
+                                        </label>
+                                    </div>
+                                    <div class="emotion-item">
+                                        <input type="checkbox" id="emotion-hopeless" name="emotions" value="hopeless">
+                                        <label for="emotion-hopeless">
+                                            <i class="fas fa-heart-broken"></i>
+                                            <span>絶望</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ステップ3: 希望する解決策 -->
+                    <div class="form-step" id="step3">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h2>希望する解決策</h2>
+                                <p>どのような解決を望んでいますか？</p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-section">
+                            <div class="form-group">
+                                <label for="desiredOutcome" class="form-label">希望する結果</label>
+                                <div class="radio-group">
+                                    <div class="form-radio">
+                                        <input type="radio" id="outcome-repair" name="desiredOutcome" value="repair">
+                                        <label for="outcome-repair">関係を修復したい</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="outcome-improve" name="desiredOutcome" value="improve">
+                                        <label for="outcome-improve">関係を改善したい</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="outcome-understand" name="desiredOutcome" value="understand">
+                                        <label for="outcome-understand">お互いを理解したい</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="outcome-communication" name="desiredOutcome" value="communication">
+                                        <label for="outcome-communication">コミュニケーションを改善したい</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="urgency" class="form-label">緊急度</label>
+                                <div class="urgency-selector">
+                                    <div class="urgency-item">
+                                        <input type="radio" id="urgency-low" name="urgency" value="low">
+                                        <label for="urgency-low">
+                                            <i class="fas fa-clock"></i>
+                                            <span>低</span>
+                                        </label>
+                                    </div>
+                                    <div class="urgency-item">
+                                        <input type="radio" id="urgency-medium" name="urgency" value="medium">
+                                        <label for="urgency-medium">
+                                            <i class="fas fa-exclamation-circle"></i>
+                                            <span>中</span>
+                                        </label>
+                                    </div>
+                                    <div class="urgency-item">
+                                        <input type="radio" id="urgency-high" name="urgency" value="high">
+                                        <label for="urgency-high">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>高</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="additionalInfo" class="form-label">追加情報</label>
+                                <textarea id="additionalInfo" name="additionalInfo" class="form-textarea" placeholder="その他、伝えたいことがあれば記入してください"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- フォームナビゲーション -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" onclick="previousStep()" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                            前へ
+                        </button>
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextStep()">
+                            次へ
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">
+                            <i class="fas fa-paper-plane"></i>
+                            仲裁依頼を送信
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- プライバシー情報 -->
+            <div class="privacy-notice">
+                <div class="notice-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="notice-content">
+                    <h3>プライバシー保護</h3>
+                    <p>あなたの情報は厳重に保護され、第三者と共有されることはありません。AI分析は匿名化されたデータのみを使用します。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMediationForm();
+        });
+        
+        function initializeMediationForm() {
+            // スライダーの初期化
+            const satisfactionSlider = document.getElementById('relationshipSatisfaction');
+            const satisfactionValue = document.getElementById('satisfactionValue');
+            
+            satisfactionSlider.addEventListener('input', function() {
+                satisfactionValue.textContent = this.value;
+            });
+            
+            // フォーム送信処理
+            document.getElementById('mediationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitMediationRequest();
+            });
+        }
+        
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < totalSteps) {
+                    // 現在のステップを非表示
+                    document.getElementById(`step${currentStep}`).classList.remove('active');
+                    
+                    // 次のステップを表示
+                    currentStep++;
+                    document.getElementById(`step${currentStep}`).classList.add('active');
+                    
+                    // ナビゲーションボタンの更新
+                    updateNavigationButtons();
+                }
+            }
+        }
+        
+        function previousStep() {
+            if (currentStep > 1) {
+                // 現在のステップを非表示
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                
+                // 前のステップを表示
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                
+                // ナビゲーションボタンの更新
+                updateNavigationButtons();
+            }
+        }
+        
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (currentStep === 1) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'inline-flex';
+                submitBtn.style.display = 'none';
+            } else if (currentStep === totalSteps) {
+                prevBtn.style.display = 'inline-flex';
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-flex';
+            } else {
+                prevBtn.style.display = 'inline-flex';
+                nextBtn.style.display = 'inline-flex';
+                submitBtn.style.display = 'none';
+            }
+        }
+        
+        function validateCurrentStep() {
+            const currentStepElement = document.getElementById(`step${currentStep}`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    showFieldError(field, 'この項目は必須です');
+                    isValid = false;
+                } else {
+                    clearFieldError(field);
+                }
+            });
+            
+            // チェックボックスの検証
+            if (currentStep === 2) {
+                const conflictTypes = currentStepElement.querySelectorAll('input[name="conflictType"]:checked');
+                if (conflictTypes.length === 0) {
+                    showWarning('問題の種類を少なくとも1つ選択してください');
+                    isValid = false;
+                }
+            }
+            
+            return isValid;
+        }
+        
+        function submitMediationRequest() {
+            if (validateCurrentStep()) {
+                showSuccess('仲裁依頼を送信しました');
+                setTimeout(() => {
+                    window.location.href = 'UC004-002.html';
+                }, 1000);
+            }
+        }
+    </script>
+    
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .page-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .mediation-form-container {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-8);
+            padding-bottom: var(--space-6);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+        }
+        
+        .form-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .rating-slider {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+        
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: var(--radius-full);
+            background: var(--gray-200);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .slider-value {
+            text-align: center;
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .emotion-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .emotion-item {
+            text-align: center;
+        }
+        
+        .emotion-item input {
+            display: none;
+        }
+        
+        .emotion-item label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .emotion-item input:checked + label {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .emotion-item i {
+            font-size: var(--text-2xl);
+            color: var(--text-secondary);
+        }
+        
+        .emotion-item input:checked + label i {
+            color: var(--primary-color);
+        }
+        
+        .emotion-item span {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .emotion-item input:checked + label span {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .urgency-selector {
+            display: flex;
+            gap: var(--space-4);
+        }
+        
+        .urgency-item {
+            flex: 1;
+        }
+        
+        .urgency-item input {
+            display: none;
+        }
+        
+        .urgency-item label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-4);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .urgency-item input:checked + label {
+            border-color: var(--primary-color);
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .urgency-item i {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+        }
+        
+        .urgency-item input:checked + label i {
+            color: var(--primary-color);
+        }
+        
+        .urgency-item span {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .urgency-item input:checked + label span {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .privacy-notice {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 1px solid #0ea5e9;
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .notice-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #0ea5e9;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .notice-icon i {
+            font-size: var(--text-xl);
+            color: var(--white);
+        }
+        
+        .notice-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .notice-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .emotion-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .urgency-selector {
+                flex-direction: column;
+            }
+            
+            .form-navigation {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+            
+            .privacy-notice {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>

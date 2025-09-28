@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール設定 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">プロフィール設定</h1>
+                    <p class="page-subtitle">あなたの情報と好みを設定してください</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- ステッパー -->
+            <div class="stepper">
+                <div class="stepper-item completed">
+                    <div class="stepper-circle">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="stepper-label">アカウント作成</div>
+                </div>
+                <div class="stepper-item active">
+                    <div class="stepper-circle">2</div>
+                    <div class="stepper-label">プロフィール設定</div>
+                </div>
+                <div class="stepper-item">
+                    <div class="stepper-circle">3</div>
+                    <div class="stepper-label">プライバシー設定</div>
+                </div>
+            </div>
+
+            <!-- フォーム -->
+            <div class="form-container">
+                <form class="profile-form" id="profileForm">
+                    <!-- 基本情報セクション -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title">基本情報</h2>
+                            <p class="section-description">あなたの基本情報を入力してください</p>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="profileImage" class="form-label">プロフィール画像</label>
+                                <div class="image-upload">
+                                    <div class="image-preview" id="imagePreview">
+                                        <i class="fas fa-user"></i>
+                                        <span>画像を選択</span>
+                                    </div>
+                                    <input type="file" id="profileImage" name="profileImage" accept="image/*" style="display: none;">
+                                    <button type="button" class="btn btn-outline" onclick="document.getElementById('profileImage').click()">
+                                        <i class="fas fa-camera"></i>
+                                        画像を選択
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nickname" class="form-label">ニックネーム</label>
+                                <input type="text" id="nickname" name="nickname" class="form-input" required>
+                                <small class="form-help">他のユーザーに表示される名前です</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="age" class="form-label">年齢</label>
+                                <select id="age" name="age" class="form-select" required>
+                                    <option value="">選択してください</option>
+                                    <option value="18-20">18-20歳</option>
+                                    <option value="21-25">21-25歳</option>
+                                    <option value="26-30">26-30歳</option>
+                                    <option value="31-35">31-35歳</option>
+                                    <option value="36-40">36-40歳</option>
+                                    <option value="41-45">41-45歳</option>
+                                    <option value="46-50">46-50歳</option>
+                                    <option value="51-55">51-55歳</option>
+                                    <option value="56-60">56-60歳</option>
+                                    <option value="60+">60歳以上</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gender" class="form-label">性別</label>
+                                <div class="radio-group">
+                                    <div class="form-radio">
+                                        <input type="radio" id="gender-male" name="gender" value="male">
+                                        <label for="gender-male">男性</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="gender-female" name="gender" value="female">
+                                        <label for="gender-female">女性</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="gender-other" name="gender" value="other">
+                                        <label for="gender-other">その他</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="gender-prefer-not-to-say" name="gender" value="prefer-not-to-say">
+                                        <label for="gender-prefer-not-to-say">回答しない</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="location" class="form-label">居住地</label>
+                                <select id="location" name="location" class="form-select" required>
+                                    <option value="">選択してください</option>
+                                    <option value="hokkaido">北海道</option>
+                                    <option value="tohoku">東北</option>
+                                    <option value="kanto">関東</option>
+                                    <option value="chubu">中部</option>
+                                    <option value="kansai">関西</option>
+                                    <option value="chugoku">中国</option>
+                                    <option value="shikoku">四国</option>
+                                    <option value="kyushu">九州</option>
+                                    <option value="okinawa">沖縄</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 好み設定セクション -->
+                    <div class="form-section">
+                        <div class="section-header">
+                            <h2 class="section-title">デートの好み</h2>
+                            <p class="section-description">あなたのデートの好みを教えてください</p>
+                        </div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="dateStyle" class="form-label">デートスタイル</label>
+                                <div class="checkbox-group">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-casual" name="dateStyle" value="casual">
+                                        <label for="style-casual">カジュアル</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-romantic" name="dateStyle" value="romantic">
+                                        <label for="style-romantic">ロマンチック</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-adventure" name="dateStyle" value="adventure">
+                                        <label for="style-adventure">アドベンチャー</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-cultural" name="dateStyle" value="cultural">
+                                        <label for="style-cultural">文化的</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-active" name="dateStyle" value="active">
+                                        <label for="style-active">アクティブ</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="style-relaxing" name="dateStyle" value="relaxing">
+                                        <label for="style-relaxing">リラックス</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="interests" class="form-label">興味のある分野</label>
+                                <div class="checkbox-group">
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-food" name="interests" value="food">
+                                        <label for="interest-food">グルメ</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-culture" name="interests" value="culture">
+                                        <label for="interest-culture">文化・芸術</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-nature" name="interests" value="nature">
+                                        <label for="interest-nature">自然・公園</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-shopping" name="interests" value="shopping">
+                                        <label for="interest-shopping">ショッピング</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-entertainment" name="interests" value="entertainment">
+                                        <label for="interest-entertainment">エンターテイメント</label>
+                                    </div>
+                                    <div class="form-checkbox">
+                                        <input type="checkbox" id="interest-sports" name="interests" value="sports">
+                                        <label for="interest-sports">スポーツ</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budgetRange" class="form-label">よく使う予算範囲</label>
+                                <select id="budgetRange" name="budgetRange" class="form-select">
+                                    <option value="">選択してください</option>
+                                    <option value="5000">5,000円以下</option>
+                                    <option value="10000">5,000円〜10,000円</option>
+                                    <option value="20000">10,000円〜20,000円</option>
+                                    <option value="30000">20,000円〜30,000円</option>
+                                    <option value="50000">30,000円〜50,000円</option>
+                                    <option value="100000">50,000円以上</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timePreference" class="form-label">時間の好み</label>
+                                <div class="radio-group">
+                                    <div class="form-radio">
+                                        <input type="radio" id="time-morning" name="timePreference" value="morning">
+                                        <label for="time-morning">午前中</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="time-afternoon" name="timePreference" value="afternoon">
+                                        <label for="time-afternoon">午後</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="time-evening" name="timePreference" value="evening">
+                                        <label for="time-evening">夕方・夜</label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <input type="radio" id="time-any" name="timePreference" value="any">
+                                        <label for="time-any">どちらでも</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="specialRequests" class="form-label">特別なリクエスト</label>
+                                <textarea id="specialRequests" name="specialRequests" class="form-textarea" placeholder="アレルギー、苦手なもの、特別な希望などがあれば入力してください"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- フォームアクション -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="goBack()">
+                            <i class="fas fa-arrow-left"></i>
+                            前へ
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            次へ
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProfileForm();
+        });
+        
+        function initializeProfileForm() {
+            // 画像アップロードの処理
+            const imageInput = document.getElementById('profileImage');
+            const imagePreview = document.getElementById('imagePreview');
+            
+            imageInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.innerHTML = `<img src="${e.target.result}" alt="プロフィール画像">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // フォーム送信処理
+            document.getElementById('profileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    showSuccess('プロフィールを保存しました');
+                    setTimeout(() => {
+                        window.location.href = 'AUTH-003.html';
+                    }, 1000);
+                }
+            });
+        }
+        
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    showFieldError(field, 'この項目は必須です');
+                    isValid = false;
+                } else {
+                    clearFieldError(field);
+                }
+            });
+            
+            return isValid;
+        }
+    </script>
+    
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .page-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .form-container {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .form-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .section-header {
+            margin-bottom: var(--space-8);
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .section-description {
+            color: var(--text-secondary);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-3);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .image-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .image-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: var(--radius-full);
+            background-color: var(--gray-100);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-medium);
+            cursor: pointer;
+            transition: border-color var(--transition-fast);
+        }
+        
+        .image-preview:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+        }
+        
+        .image-preview i {
+            font-size: var(--text-3xl);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .image-preview span {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .form-help {
+            color: var(--text-secondary);
+            font-size: var(--text-xs);
+            margin-top: var(--space-1);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group,
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+        }
+    </style>
+</body>
+</html>

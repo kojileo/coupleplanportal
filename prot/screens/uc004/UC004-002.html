@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>状況分析 - CouplePlan</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- ナビゲーションバー -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-heart"></i>
+                <span>CouplePlan</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../auth/AUTH-001.html" class="nav-link">ログイン</a>
+                <a href="../uc003/UC003-001.html" class="nav-link">ポータル</a>
+                <a href="../common/COMMON-001.html" class="nav-link">ダッシュボード</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <div class="container">
+            <!-- ヘッダー -->
+            <div class="page-header">
+                <div class="header-content">
+                    <h1 class="page-title">AI状況分析</h1>
+                    <p class="page-subtitle">あなたたちの関係をAIが分析し、問題の原因と解決策を特定します</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i>
+                        戻る
+                    </button>
+                </div>
+            </div>
+
+            <!-- 分析進行状況 -->
+            <div class="analysis-progress">
+                <div class="progress-header">
+                    <h2>分析進行状況</h2>
+                    <div class="progress-status">
+                        <span class="status-text">分析中...</span>
+                        <div class="progress-spinner">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <div class="progress-steps">
+                    <div class="step-item completed">
+                        <div class="step-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>データ収集</h3>
+                            <p>提供された情報を分析</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item active">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>パターン分析</h3>
+                            <p>関係性のパターンを特定中</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>解決策生成</h3>
+                            <p>最適な解決策を生成中</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分析結果 -->
+            <div class="analysis-results" id="analysisResults" style="display: none;">
+                <!-- 関係性スコア -->
+                <div class="relationship-score">
+                    <h2>関係性スコア</h2>
+                    <div class="score-container">
+                        <div class="score-circle">
+                            <div class="score-value">72</div>
+                            <div class="score-label">総合スコア</div>
+                        </div>
+                        <div class="score-breakdown">
+                            <div class="score-item">
+                                <span class="score-category">コミュニケーション</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="score-number">65</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-category">信頼関係</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 80%"></div>
+                                </div>
+                                <span class="score-number">80</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-category">親密さ</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 70%"></div>
+                                </div>
+                                <span class="score-number">70</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-category">満足度</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="score-number">75</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 問題の特定 -->
+                <div class="problem-identification">
+                    <h2>特定された問題</h2>
+                    <div class="problems-grid">
+                        <div class="problem-card high-priority">
+                            <div class="problem-header">
+                                <div class="problem-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="problem-priority">
+                                    <span class="priority-badge high">高</span>
+                                </div>
+                            </div>
+                            <div class="problem-content">
+                                <h3>コミュニケーション不足</h3>
+                                <p>日常的な会話が減少し、お互いの気持ちを理解し合えていない状況が続いています。</p>
+                                <div class="problem-impact">
+                                    <span class="impact-label">影響度:</span>
+                                    <span class="impact-value high">高い</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="problem-card medium-priority">
+                            <div class="problem-header">
+                                <div class="problem-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="problem-priority">
+                                    <span class="priority-badge medium">中</span>
+                                </div>
+                            </div>
+                            <div class="problem-content">
+                                <h3>時間の使い方の違い</h3>
+                                <p>お互いの生活リズムや価値観の違いにより、一緒に過ごす時間が減少しています。</p>
+                                <div class="problem-impact">
+                                    <span class="impact-label">影響度:</span>
+                                    <span class="impact-value medium">中程度</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="problem-card low-priority">
+                            <div class="problem-header">
+                                <div class="problem-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="problem-priority">
+                                    <span class="priority-badge low">低</span>
+                                </div>
+                            </div>
+                            <div class="problem-content">
+                                <h3>愛情表現の不足</h3>
+                                <p>お互いへの愛情表現が減少し、関係性に距離を感じるようになっています。</p>
+                                <div class="problem-impact">
+                                    <span class="impact-label">影響度:</span>
+                                    <span class="impact-value low">低い</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 感情分析 -->
+                <div class="emotion-analysis">
+                    <h2>感情分析</h2>
+                    <div class="emotion-chart">
+                        <div class="emotion-item">
+                            <div class="emotion-label">不安</div>
+                            <div class="emotion-bar">
+                                <div class="emotion-fill" style="width: 70%"></div>
+                            </div>
+                            <div class="emotion-value">70%</div>
+                        </div>
+                        <div class="emotion-item">
+                            <div class="emotion-label">イライラ</div>
+                            <div class="emotion-bar">
+                                <div class="emotion-fill" style="width: 60%"></div>
+                            </div>
+                            <div class="emotion-value">60%</div>
+                        </div>
+                        <div class="emotion-item">
+                            <div class="emotion-label">悲しみ</div>
+                            <div class="emotion-bar">
+                                <div class="emotion-fill" style="width: 45%"></div>
+                            </div>
+                            <div class="emotion-value">45%</div>
+                        </div>
+                        <div class="emotion-item">
+                            <div class="emotion-label">孤独感</div>
+                            <div class="emotion-bar">
+                                <div class="emotion-fill" style="width: 55%"></div>
+                            </div>
+                            <div class="emotion-value">55%</div>
+                        </div>
+                        <div class="emotion-item">
+                            <div class="emotion-label">希望</div>
+                            <div class="emotion-bar">
+                                <div class="emotion-fill" style="width: 30%"></div>
+                            </div>
+                            <div class="emotion-value">30%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 改善提案 -->
+                <div class="improvement-suggestions">
+                    <h2>改善提案</h2>
+                    <div class="suggestions-list">
+                        <div class="suggestion-item">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="suggestion-content">
+                                <h3>定期的な対話時間の設定</h3>
+                                <p>週に1回、お互いの気持ちや考えを共有する時間を作りましょう。スマートフォンを置いて、集中して話し合うことが重要です。</p>
+                                <div class="suggestion-priority">
+                                    <span class="priority-label">優先度:</span>
+                                    <span class="priority-value high">高</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-item">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="suggestion-content">
+                                <h3>愛情表現の増加</h3>
+                                <p>日常的な感謝の言葉や小さなサプライズを心がけましょう。相手の好きなことを思い出し、積極的に表現することが大切です。</p>
+                                <div class="suggestion-priority">
+                                    <span class="priority-label">優先度:</span>
+                                    <span class="priority-value medium">中</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-item">
+                            <div class="suggestion-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="suggestion-content">
+                                <h3>デート時間の確保</h3>
+                                <p>忙しい中でも、月に2回は二人だけの時間を作りましょう。新しい場所や活動を一緒に体験することで、新鮮な気持ちを共有できます。</p>
+                                <div class="suggestion-priority">
+                                    <span class="priority-label">優先度:</span>
+                                    <span class="priority-value medium">中</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 次のステップ -->
+                <div class="next-steps">
+                    <h2>次のステップ</h2>
+                    <div class="steps-container">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>パートナーとの共有</h3>
+                                <p>この分析結果をパートナーと共有し、一緒に改善に取り組みましょう。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>具体的な解決策の検討</h3>
+                                <p>AIが提案する具体的な解決策を検討し、実行可能なものから始めましょう。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>進捗の追跡</h3>
+                                <p>定期的に改善の進捗を確認し、必要に応じてアプローチを調整しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- アクション -->
+            <div class="analysis-actions">
+                <button class="btn btn-primary" onclick="viewSolutions()" id="viewSolutionsBtn" style="display: none;">
+                    <i class="fas fa-lightbulb"></i>
+                    解決策を確認
+                </button>
+                <button class="btn btn-secondary" onclick="shareAnalysis()" id="shareAnalysisBtn" style="display: none;">
+                    <i class="fas fa-share"></i>
+                    分析結果を共有
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script>
+        let analysisProgress = 0;
+        let analysisTimer;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAnalysis();
+        });
+        
+        function initializeAnalysis() {
+            // 分析プロセスの開始
+            startAnalysis();
+        }
+        
+        function startAnalysis() {
+            // プログレスバーのアニメーション
+            analysisTimer = setInterval(() => {
+                analysisProgress += Math.random() * 5;
+                if (analysisProgress > 100) analysisProgress = 100;
+                
+                updateProgress(analysisProgress);
+                updateSteps(analysisProgress);
+                
+                if (analysisProgress >= 100) {
+                    completeAnalysis();
+                }
+            }, 200);
+        }
+        
+        function updateProgress(progress) {
+            const progressFill = document.getElementById('progressFill');
+            progressFill.style.width = progress + '%';
+        }
+        
+        function updateSteps(progress) {
+            const steps = [
+                { progress: 33, step: 1 },
+                { progress: 66, step: 2 },
+                { progress: 100, step: 3 }
+            ];
+            
+            steps.forEach(({ progress: threshold, step }) => {
+                if (progress >= threshold) {
+                    updateStepStatus(step);
+                }
+            });
+        }
+        
+        function updateStepStatus(stepNumber) {
+            const stepItems = document.querySelectorAll('.step-item');
+            stepItems.forEach((item, index) => {
+                if (index < stepNumber - 1) {
+                    item.classList.remove('active');
+                    item.classList.add('completed');
+                } else if (index === stepNumber - 1) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        function completeAnalysis() {
+            clearInterval(analysisTimer);
+            
+            // 分析結果を表示
+            document.getElementById('analysisResults').style.display = 'block';
+            document.getElementById('viewSolutionsBtn').style.display = 'inline-flex';
+            document.getElementById('shareAnalysisBtn').style.display = 'inline-flex';
+            
+            // プログレスセクションを非表示
+            document.querySelector('.analysis-progress').style.display = 'none';
+            
+            showSuccess('分析が完了しました');
+        }
+        
+        function viewSolutions() {
+            window.location.href = 'UC004-003.html';
+        }
+        
+        function shareAnalysis() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'AI関係分析結果',
+                    text: '私たちの関係性をAIが分析した結果を共有します',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showSuccess('分析結果のリンクをコピーしました');
+            }
+        }
+    </script>
+    
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-8);
+        }
+        
+        .page-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .analysis-progress {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-6);
+        }
+        
+        .progress-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .progress-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .status-text {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .progress-spinner {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .spinner {
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gray-200);
+            border-top: 2px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--space-6);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .progress-steps {
+            display: flex;
+            gap: var(--space-6);
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            flex: 1;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+            opacity: 0.5;
+        }
+        
+        .step-item.active {
+            background-color: rgba(255, 107, 107, 0.1);
+            border: 2px solid var(--primary-color);
+            opacity: 1;
+        }
+        
+        .step-item.completed {
+            background-color: rgba(78, 205, 196, 0.1);
+            border: 2px solid var(--secondary-color);
+            opacity: 1;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .step-item.active .step-icon {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .step-item.completed .step-icon {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .step-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-1);
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .analysis-results {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+        }
+        
+        .relationship-score,
+        .problem-identification,
+        .emotion-analysis,
+        .improvement-suggestions,
+        .next-steps {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-8);
+        }
+        
+        .relationship-score h2,
+        .problem-identification h2,
+        .emotion-analysis h2,
+        .improvement-suggestions h2,
+        .next-steps h2 {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            text-align: center;
+        }
+        
+        .score-container {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+        
+        .score-value {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+        }
+        
+        .score-label {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+        
+        .score-breakdown {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+        }
+        
+        .score-category {
+            width: 120px;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .score-bar {
+            flex: 1;
+            height: 8px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+        }
+        
+        .score-number {
+            width: 30px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .problem-card {
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 2px solid transparent;
+        }
+        
+        .problem-card.high-priority {
+            border-color: #ef4444;
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+        
+        .problem-card.medium-priority {
+            border-color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.05);
+        }
+        
+        .problem-card.low-priority {
+            border-color: #10b981;
+            background-color: rgba(16, 185, 129, 0.05);
+        }
+        
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+        
+        .problem-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gray-100);
+        }
+        
+        .problem-icon i {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+        }
+        
+        .priority-badge {
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 500;
+        }
+        
+        .priority-badge.high {
+            background-color: #ef4444;
+            color: var(--white);
+        }
+        
+        .priority-badge.medium {
+            background-color: #f59e0b;
+            color: var(--white);
+        }
+        
+        .priority-badge.low {
+            background-color: #10b981;
+            color: var(--white);
+        }
+        
+        .problem-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .problem-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .problem-impact {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .impact-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .impact-value {
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .impact-value.high {
+            color: #ef4444;
+        }
+        
+        .impact-value.medium {
+            color: #f59e0b;
+        }
+        
+        .impact-value.low {
+            color: #10b981;
+        }
+        
+        .emotion-chart {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .emotion-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+        
+        .emotion-label {
+            width: 80px;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .emotion-bar {
+            flex: 1;
+            height: 12px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+        
+        .emotion-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ef4444, #f59e0b);
+            border-radius: var(--radius-full);
+        }
+        
+        .emotion-value {
+            width: 40px;
+            text-align: right;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .suggestions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        
+        .suggestion-item {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .suggestion-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .suggestion-icon i {
+            font-size: var(--text-xl);
+            color: var(--white);
+        }
+        
+        .suggestion-content {
+            flex: 1;
+        }
+        
+        .suggestion-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .suggestion-content p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .suggestion-priority {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+        
+        .priority-label {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+        
+        .priority-value {
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+        
+        .priority-value.high {
+            color: #ef4444;
+        }
+        
+        .priority-value.medium {
+            color: #f59e0b;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .step-card {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-6);
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+        }
+        
+        .analysis-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-4);
+            }
+            
+            .progress-steps {
+                flex-direction: column;
+            }
+            
+            .score-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .suggestion-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .analysis-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
