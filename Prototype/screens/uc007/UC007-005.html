@@ -45,6 +45,10 @@
                         <i class="fas fa-arrow-left"></i>
                         戻る
                     </button>
+                    <button class="btn btn-primary" onclick="navigateTo('UC007-001')">
+                        <i class="fas fa-credit-card"></i>
+                        課金管理
+                    </button>
                 </div>
             </div>
 
@@ -123,10 +127,6 @@
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
-                                <span>基本的なDate Canvas</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
                                 <span>写真保存（1GB）</span>
                             </div>
                             <div class="feature-item">
@@ -160,10 +160,6 @@
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
                                 <span>AIデート提案（月10回まで）</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Date Canvas（基本機能）</span>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
@@ -201,10 +197,6 @@
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
                                 <span>AIデート提案（無制限）</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-check"></i>
-                                <span>Date Canvas Pro</span>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-check"></i>
@@ -291,13 +283,6 @@
                             <div class="row-value">無制限</div>
                         </div>
                         
-                        <div class="table-row">
-                            <div class="row-label">Date Canvas</div>
-                            <div class="row-value">基本</div>
-                            <div class="row-value">基本</div>
-                            <div class="row-value current">Pro</div>
-                            <div class="row-value">Pro</div>
-                        </div>
                         
                         <div class="table-row">
                             <div class="row-label">写真保存</div>
@@ -464,6 +449,49 @@
             setTimeout(() => {
                 window.location.href = 'UC007-004.html';
             }, 500);
+        }
+        
+        // ナビゲーション関数
+        function navigateTo(screenId) {
+            const routes = {
+                'UC001-001': '../uc001/UC001-001.html',
+                'UC001-002': '../uc001/UC001-002.html',
+                'UC001-003': '../uc001/UC001-003.html',
+                'UC001-004': '../uc001/UC001-004.html',
+                'UC001-005': '../uc001/UC001-005.html',
+                'UC002-001': '../uc002/UC002-001.html',
+                'UC002-002': '../uc002/UC002-002.html',
+                'UC003-001': '../uc003/UC003-001.html',
+                'UC003-002': '../uc003/UC003-002.html',
+                'UC003-003': '../uc003/UC003-003.html',
+                'UC003-004': '../uc003/UC003-004.html',
+                'UC003-005': '../uc003/UC003-005.html',
+                'UC004-001': '../uc004/UC004-001.html',
+                'UC004-002': '../uc004/UC004-002.html',
+                'UC004-003': '../uc004/UC004-003.html',
+                'UC005-002': '../uc005/UC005-002.html',
+                'UC007-001': 'UC007-001.html',
+                'UC007-002': 'UC007-002.html',
+                'UC007-003': 'UC007-003.html',
+                'UC007-004': 'UC007-004.html',
+                'UC007-005': 'UC007-005.html',
+                'AUTH-001': '../auth/AUTH-001.html',
+                'AUTH-002': '../auth/AUTH-002.html',
+                'AUTH-003': '../auth/AUTH-003.html',
+                'AUTH-004': '../auth/AUTH-004.html',
+                'COMMON-001': '../common/COMMON-001.html',
+                'COMMON-002': '../common/COMMON-002.html',
+                'COMMON-003': '../common/COMMON-003.html',
+                'COMMON-004': '../common/COMMON-004.html',
+                'COMMON-005': '../common/COMMON-005.html'
+            };
+            
+            if (routes[screenId]) {
+                window.location.href = routes[screenId];
+            } else {
+                console.warn('ルートが見つかりません:', screenId);
+                showInfo('画面が見つかりません');
+            }
         }
     </script>
     

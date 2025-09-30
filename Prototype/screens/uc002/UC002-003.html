@@ -45,6 +45,10 @@
                         <i class="fas fa-arrow-left"></i>
                         戻る
                     </button>
+                    <button class="btn btn-primary" onclick="navigateTo('UC002-001')">
+                        <i class="fas fa-edit"></i>
+                        編集に戻る
+                    </button>
                 </div>
             </div>
 
@@ -437,6 +441,49 @@
             setTimeout(() => {
                 showSuccess('履歴をエクスポートしました');
             }, 1000);
+        }
+        
+        // ナビゲーション関数
+        function navigateTo(screenId) {
+            const routes = {
+                'UC001-001': '../uc001/UC001-001.html',
+                'UC001-002': '../uc001/UC001-002.html',
+                'UC001-003': '../uc001/UC001-003.html',
+                'UC001-004': '../uc001/UC001-004.html',
+                'UC001-005': '../uc001/UC001-005.html',
+                'UC002-001': 'UC002-001.html',
+                'UC002-002': 'UC002-002.html',
+                'UC002-003': 'UC002-003.html',
+                'UC002-004': 'UC002-004.html',
+                'UC002-005': 'UC002-005.html',
+                'UC003-001': '../uc003/UC003-001.html',
+                'UC003-002': '../uc003/UC003-002.html',
+                'UC003-003': '../uc003/UC003-003.html',
+                'UC003-004': '../uc003/UC003-004.html',
+                'UC003-005': '../uc003/UC003-005.html',
+                'UC004-001': '../uc004/UC004-001.html',
+                'UC004-002': '../uc004/UC004-002.html',
+                'UC004-003': '../uc004/UC004-003.html',
+                'UC005-002': '../uc005/UC005-002.html',
+                'UC007-001': '../uc007/UC007-001.html',
+                'UC007-002': '../uc007/UC007-002.html',
+                'AUTH-001': '../auth/AUTH-001.html',
+                'AUTH-002': '../auth/AUTH-002.html',
+                'AUTH-003': '../auth/AUTH-003.html',
+                'AUTH-004': '../auth/AUTH-004.html',
+                'COMMON-001': '../common/COMMON-001.html',
+                'COMMON-002': '../common/COMMON-002.html',
+                'COMMON-003': '../common/COMMON-003.html',
+                'COMMON-004': '../common/COMMON-004.html',
+                'COMMON-005': '../common/COMMON-005.html'
+            };
+            
+            if (routes[screenId]) {
+                window.location.href = routes[screenId];
+            } else {
+                console.warn('ルートが見つかりません:', screenId);
+                showInfo('画面が見つかりません');
+            }
         }
     </script>
     

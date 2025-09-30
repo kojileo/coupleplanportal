@@ -163,66 +163,6 @@ CouplePlanプラットフォームの画面からマイクロサービスAPI、�
 | UC004-003 | 仲裁提案 | 提案フィードバック | API呼び出し | API-RM-009 | 提案フィードバック | `/api/v1/mediation/{mediationId}/feedback` | POST | mediationId, feedback | MediationProposal |
 | UC004-003 | 仲裁提案 | 提案詳細表示 | 画面内処理 | - | - | - | - | - | - |
 
-### UC-005: Date Canvas共同編集ボード
-
-#### UC005-001: Date Canvas画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC005-001 | Date Canvas | Canvas状態取得 | API呼び出し | API-DE-002 | Canvas状態取得 | `/api/v1/dates/{dateId}/canvas` | GET | dateId | DateCanvas |
-| UC005-001 | Date Canvas | Canvas更新 | API呼び出し | API-DE-003 | Canvas更新 | `/api/v1/dates/{dateId}/canvas` | PUT | dateId, content | DateCanvas |
-| UC005-001 | Date Canvas | リアルタイム同期 | API呼び出し | API-DE-004 | Canvas同期 | `/api/v1/dates/{dateId}/canvas/sync` | WebSocket | dateId, operation | DateCanvas |
-| UC005-001 | Date Canvas | メディアアップロード | API呼び出し | API-DE-005 | メディアアップロード | `/api/v1/dates/{dateId}/media` | POST | dateId, file | DateMemory |
-| UC005-001 | Date Canvas | ドラッグ&ドロップ操作 | 画面内処理 | - | - | - | - | - | - |
-
-#### UC005-002: 位置情報ピン画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC005-002 | 位置情報ピン | 位置情報取得 | API呼び出し | API-DE-006 | 位置情報取得 | `/api/v1/dates/{dateId}/locations` | GET | dateId | LocationPin |
-| UC005-002 | 位置情報ピン | ピン追加 | API呼び出し | API-DE-007 | ピン追加 | `/api/v1/dates/{dateId}/locations` | POST | dateId, latitude, longitude | LocationPin |
-| UC005-002 | 位置情報ピン | ピン更新 | API呼び出し | API-DE-008 | ピン更新 | `/api/v1/dates/{dateId}/locations/{pinId}` | PUT | dateId, pinId, data | LocationPin |
-| UC005-002 | 位置情報ピン | 地図表示 | 画面内処理 | - | - | - | - | - | - |
-| UC005-002 | 位置情報ピン | GPS位置取得 | 画面内処理 | - | - | - | - | - | - |
-
-#### UC005-005: アルバム生成画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC005-005 | アルバム生成 | アルバム生成依頼 | API呼び出し | API-DE-009 | アルバム生成 | `/api/v1/dates/{dateId}/album` | POST | dateId | DateAlbum |
-| UC005-005 | アルバム生成 | 生成進捗取得 | API呼び出し | API-DE-010 | 生成進捗取得 | `/api/v1/dates/{dateId}/album/status` | GET | dateId | DateAlbum |
-| UC005-005 | アルバム生成 | アルバム取得 | API呼び出し | API-DE-011 | アルバム取得 | `/api/v1/dates/{dateId}/album` | GET | dateId | DateAlbum |
-| UC005-005 | アルバム生成 | アルバム編集 | API呼び出し | API-DE-012 | アルバム編集 | `/api/v1/dates/{dateId}/album` | PUT | dateId, albumData | DateAlbum |
-| UC005-005 | アルバム生成 | プレビュー表示 | 画面内処理 | - | - | - | - | - | - |
-
-### UC-006: Memory Sparksレコメンド
-
-#### UC006-001: 思い出抽出画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC006-001 | 思い出抽出 | 思い出抽出依頼 | API呼び出し | API-MM-001 | 思い出抽出 | `/api/v1/memories/extract` | POST | dateId | Memory |
-| UC006-001 | 思い出抽出 | 抽出結果取得 | API呼び出し | API-MM-002 | 抽出結果取得 | `/api/v1/memories/{dateId}` | GET | dateId | Memory |
-| UC006-001 | 思い出抽出 | 抽出進捗取得 | API呼び出し | API-MM-003 | 抽出進捗取得 | `/api/v1/memories/{dateId}/progress` | GET | dateId | ExtractionLog |
-| UC006-001 | 思い出抽出 | 結果表示 | 画面内処理 | - | - | - | - | - | - |
-
-#### UC006-002: レコメンド画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC006-002 | レコメンド | レコメンド取得 | API呼び出し | API-MM-004 | レコメンド取得 | `/api/v1/recommendations/{memoryId}` | GET | memoryId | MemorySpark |
-| UC006-002 | レコメンド | レコメンド生成 | API呼び出し | API-MM-005 | レコメンド生成 | `/api/v1/recommendations/generate` | POST | memoryId, preferences | Recommendation |
-| UC006-002 | レコメンド | レコメンド選択 | API呼び出し | API-MM-006 | レコメンド選択 | `/api/v1/recommendations/{recId}/select` | POST | recId | Recommendation |
-| UC006-002 | レコメンド | カード表示 | 画面内処理 | - | - | - | - | - | - |
-
-#### UC006-003: メッセージカスタマイズ画面
-
-| 画面ID | 画面名 | 機能 | 処理種別 | API ID | API名 | エンドポイント | HTTPメソッド | 主要パラメータ | 管理データ |
-|--------|--------|------|----------|--------|-------|----------------|--------------|----------------|------------|
-| UC006-003 | メッセージカスタマイズ | テンプレート取得 | API呼び出し | API-MM-007 | テンプレート取得 | `/api/v1/messages/templates` | GET | category | GratitudeMessage |
-| UC006-003 | メッセージカスタマイズ | メッセージ保存 | API呼び出し | API-MM-008 | メッセージ保存 | `/api/v1/messages` | POST | content, recipientId | GratitudeMessage |
-| UC006-003 | メッセージカスタマイズ | プレビュー表示 | 画面内処理 | - | - | - | - | - | - |
-| UC006-003 | メッセージカスタマイズ | エディタ機能 | 画面内処理 | - | - | - | - | - | - |
 
 ### UC-007: 段階的マネタイズ制御
 
@@ -264,9 +204,7 @@ CouplePlanプラットフォームの画面からマイクロサービスAPI、�
 | User Management Service | MS-001 | User, Couple, UserProfile, UserSession | User, Couple, UserProfile, UserSession, CoupleInvitation | API-UM-001〜011 | ユーザー管理、認証、プロフィール、セッション管理 |
 | Date Planning Service | MS-002 | DatePlan, PlanItem, PlanTemplate | DatePlan, PlanItem, PlanTemplate, PlanRecommendation, PlanFeedback | API-DP-001〜006 | デートプラン生成、管理、AI提案 |
 | Collaboration Service | MS-003 | PlanSession, EditOperation, EditConflict | PlanSession, EditOperation, EditConflict, CollaborationState | API-COLLAB-001〜005 | リアルタイム協働編集、競合解決 |
-| Date Execution Service | MS-004 | Date, DateCanvas, LocationPin | Date, DateCanvas, LocationPin, DateMemory, DateAlbum | API-DE-001〜012 | デート実行、記録、位置情報管理 |
-| Relationship Management Service | MS-005 | Relationship, Conflict, Mediation | Relationship, Conflict, Mediation, RelationshipMetric, MediationProposal | API-RM-001〜010 | 関係性分析、対立仲裁、修復提案 |
-| Memory Management Service | MS-006 | Memory, MemorySpark, Recommendation | Memory, MemorySpark, Recommendation, GratitudeMessage, ExtractionLog | API-MM-001〜008 | 思い出抽出、レコメンド、感謝メッセージ |
+| Relationship Management Service | MS-004 | Relationship, Conflict, Mediation | Relationship, Conflict, Mediation, RelationshipMetric, MediationProposal | API-RM-001〜010 | 関係性分析、対立仲裁、修復提案 |
 | Platform Integration Service | MS-007 | PortalContent, ExternalService | PortalContent, ExternalService, IntegrationConfig, ContentDelivery | API-PI-001〜010 | ポータルコンテンツ、外部連携 |
 | Monetization Service | MS-008 | Subscription, Payment, FeatureFlag | Subscription, Payment, FeatureFlag, UsageMetrics, BillingCycle | API-MON-001〜006 | 課金管理、機能制御、使用量管理 |
 
@@ -278,11 +216,9 @@ CouplePlanプラットフォームの画面からマイクロサービスAPI、�
 | AIデートプラン | MS-002 (Date Planning) | DatePlan, PlanRecommendation | API-DP-001〜006 | AI生成、提案、フィードバック |
 | 共同編集 | MS-003 (Collaboration) | PlanSession, EditOperation | API-COLLAB-001〜005 | リアルタイム同期、競合解決 |
 | ポータル | MS-007 (Platform Integration) | PortalContent, ContentDelivery | API-PI-001〜010 | コンテンツ配信、検索、外部連携 |
-| 仲裁・関係修復 | MS-005 (Relationship Management) | Conflict, Mediation | API-RM-001〜010 | AI分析、仲裁提案、関係修復 |
-| デート実行 | MS-004 (Date Execution) | Date, DateCanvas, DateAlbum | API-DE-001〜012 | リアルタイム記録、位置情報、アルバム生成 |
-| 思い出・レコメンド | MS-006 (Memory Management) | Memory, MemorySpark | API-MM-001〜008 | 自動抽出、レコメンド、感謝メッセージ |
+| 仲裁・関係修復 | MS-004 (Relationship Management) | Conflict, Mediation | API-RM-001〜010 | AI分析、仲裁提案、関係修復 |
 | 課金・機能制御 | MS-008 (Monetization) | Subscription, FeatureFlag | API-MON-001〜006 | 段階的課金、機能解放制御 |
-| ダッシュボード | MS-001, MS-004, MS-005 | User, Date, Relationship | API-UM-010, API-DE-002, API-RM-010 | 統合表示、リアルタイム更新 |
+| ダッシュボード | MS-001, MS-004 | User, Relationship | API-UM-010, API-RM-010 | 統合表示、リアルタイム更新 |
 
 ## 4. 設計のベストプラクティスと注意点
 

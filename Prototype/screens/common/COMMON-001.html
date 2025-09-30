@@ -62,26 +62,6 @@
                         </div>
                     </div>
                     
-                    <div class="action-card" onclick="navigateTo('UC005-001')">
-                        <div class="action-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="action-content">
-                            <h3>Date Canvas</h3>
-                            <p>思い出を一緒に描こう</p>
-                        </div>
-                    </div>
-                    
-                    <div class="action-card" onclick="navigateTo('UC006-001')">
-                        <div class="action-icon">
-                            <i class="fas fa-sparkles"></i>
-                        </div>
-                        <div class="action-content">
-                            <h3>Memory Sparks</h3>
-                            <p>思い出を分析・レコメンド</p>
-                        </div>
-                    </div>
-                    
                     <div class="action-card" onclick="navigateTo('UC004-001')">
                         <div class="action-icon">
                             <i class="fas fa-heart"></i>
@@ -89,6 +69,26 @@
                         <div class="action-content">
                             <h3>AI仲裁</h3>
                             <p>関係の悩みを解決</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card" onclick="navigateTo('UC005-002')">
+                        <div class="action-icon">
+                            <i class="fas fa-map-pin"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>位置情報ピン</h3>
+                            <p>思い出を地図上に記録</p>
+                        </div>
+                    </div>
+                    
+                    <div class="action-card" onclick="navigateTo('UC007-001')">
+                        <div class="action-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="action-content">
+                            <h3>課金管理</h3>
+                            <p>プラン・支払い情報の管理</p>
                         </div>
                     </div>
                 </div>
@@ -397,13 +397,39 @@
         function navigateTo(screenId) {
             const routes = {
                 'UC001-001': '../uc001/UC001-001.html',
-                'UC005-001': '../uc005/UC005-001.html',
-                'UC006-001': '../uc006/UC006-001.html',
-                'UC004-001': '../uc004/UC004-001.html'
+                'UC001-002': '../uc001/UC001-002.html',
+                'UC001-003': '../uc001/UC001-003.html',
+                'UC001-004': '../uc001/UC001-004.html',
+                'UC001-005': '../uc001/UC001-005.html',
+                'UC002-001': '../uc002/UC002-001.html',
+                'UC002-002': '../uc002/UC002-002.html',
+                'UC003-001': '../uc003/UC003-001.html',
+                'UC003-002': '../uc003/UC003-002.html',
+                'UC003-003': '../uc003/UC003-003.html',
+                'UC003-004': '../uc003/UC003-004.html',
+                'UC003-005': '../uc003/UC003-005.html',
+                'UC004-001': '../uc004/UC004-001.html',
+                'UC004-002': '../uc004/UC004-002.html',
+                'UC004-003': '../uc004/UC004-003.html',
+                'UC005-002': '../uc005/UC005-002.html',
+                'UC007-001': '../uc007/UC007-001.html',
+                'UC007-002': '../uc007/UC007-002.html',
+                'AUTH-001': '../auth/AUTH-001.html',
+                'AUTH-002': '../auth/AUTH-002.html',
+                'AUTH-003': '../auth/AUTH-003.html',
+                'AUTH-004': '../auth/AUTH-004.html',
+                'COMMON-001': 'COMMON-001.html',
+                'COMMON-002': 'COMMON-002.html',
+                'COMMON-003': 'COMMON-003.html',
+                'COMMON-004': 'COMMON-004.html',
+                'COMMON-005': 'COMMON-005.html'
             };
             
             if (routes[screenId]) {
                 window.location.href = routes[screenId];
+            } else {
+                console.warn('ルートが見つかりません:', screenId);
+                showInfo('画面が見つかりません');
             }
         }
         

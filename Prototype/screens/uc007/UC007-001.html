@@ -45,6 +45,10 @@
                         <i class="fas fa-arrow-left"></i>
                         戻る
                     </button>
+                    <button class="btn btn-outline" onclick="navigateTo('UC007-002')">
+                        <i class="fas fa-unlock"></i>
+                        機能解放
+                    </button>
                 </div>
             </div>
 
@@ -80,14 +84,6 @@
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
                             <span>AI仲裁機能</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>
-                            <span>Date Canvas</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check"></i>
-                            <span>Memory Sparks</span>
                         </div>
                         <div class="feature-item">
                             <i class="fas fa-check"></i>
@@ -140,21 +136,11 @@
                         </div>
                         <div class="stat-content">
                             <div class="stat-value">8</div>
-                            <div class="stat-label">Date Canvas作成</div>
+                            <div class="stat-label">AIプラン作成</div>
                             <div class="stat-limit">無制限</div>
                         </div>
                     </div>
                     
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <i class="fas fa-sparkles"></i>
-                        </div>
-                        <div class="stat-content">
-                            <div class="stat-value">15</div>
-                            <div class="stat-label">Memory Sparks</div>
-                            <div class="stat-limit">無制限</div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -389,6 +375,46 @@
         function pauseBilling() {
             if (confirm('課金を一時停止しますか？停止中はプレミアム機能が利用できなくなります。')) {
                 showSuccess('課金を一時停止しました');
+            }
+        }
+        
+        // ナビゲーション関数
+        function navigateTo(screenId) {
+            const routes = {
+                'UC001-001': '../uc001/UC001-001.html',
+                'UC001-002': '../uc001/UC001-002.html',
+                'UC001-003': '../uc001/UC001-003.html',
+                'UC001-004': '../uc001/UC001-004.html',
+                'UC001-005': '../uc001/UC001-005.html',
+                'UC002-001': '../uc002/UC002-001.html',
+                'UC002-002': '../uc002/UC002-002.html',
+                'UC003-001': '../uc003/UC003-001.html',
+                'UC003-002': '../uc003/UC003-002.html',
+                'UC003-003': '../uc003/UC003-003.html',
+                'UC003-004': '../uc003/UC003-004.html',
+                'UC003-005': '../uc003/UC003-005.html',
+                'UC004-001': '../uc004/UC004-001.html',
+                'UC004-002': '../uc004/UC004-002.html',
+                'UC004-003': '../uc004/UC004-003.html',
+                'UC005-002': '../uc005/UC005-002.html',
+                'UC007-001': 'UC007-001.html',
+                'UC007-002': 'UC007-002.html',
+                'AUTH-001': '../auth/AUTH-001.html',
+                'AUTH-002': '../auth/AUTH-002.html',
+                'AUTH-003': '../auth/AUTH-003.html',
+                'AUTH-004': '../auth/AUTH-004.html',
+                'COMMON-001': '../common/COMMON-001.html',
+                'COMMON-002': '../common/COMMON-002.html',
+                'COMMON-003': '../common/COMMON-003.html',
+                'COMMON-004': '../common/COMMON-004.html',
+                'COMMON-005': '../common/COMMON-005.html'
+            };
+            
+            if (routes[screenId]) {
+                window.location.href = routes[screenId];
+            } else {
+                console.warn('ルートが見つかりません:', screenId);
+                showInfo('画面が見つかりません');
             }
         }
     </script>
