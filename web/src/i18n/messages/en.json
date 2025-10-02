@@ -1,0 +1,138 @@
+{
+  "common": {
+    "appName": "CouplePlan",
+    "description": "AI-powered planning for unforgettable date experiences",
+    "nav": {
+      "login": "Login",
+      "portal": "Portal",
+      "dashboard": "Dashboard",
+      "settings": "Settings"
+    },
+    "footer": {
+      "support": "Support",
+      "helpCenter": "Help Center",
+      "settings": "Settings",
+      "copyright": "{year} CouplePlan. All rights reserved."
+    }
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "AI Couple Experience Platform",
+      "title": "CouplePlan",
+      "subtitle": "AI builds date plans just for the two of you",
+      "primaryCta": "Get Started",
+      "secondaryCta": "Explore Portal"
+    },
+    "features": {
+      "title": "Key Features",
+      "items": {
+        "aiPlanning": {
+          "title": "AI Date Planning",
+          "description": "Generate tailored itineraries in seconds based on your style and vibe."
+        },
+        "collaboration": {
+          "title": "Co-edit Canvas",
+          "description": "Adjust plans together in real time and capture shared memories."
+        },
+        "portal": {
+          "title": "Date Intelligence Portal",
+          "description": "Browse trending spots, reviews and tips to spark new ideas."
+        },
+        "mediation": {
+          "title": "AI Mediation",
+          "description": "Transform conflicts into constructive conversations with AI guidance."
+        }
+      }
+    },
+    "screens": {
+      "title": "Screen Catalog",
+      "categories": {
+        "auth": {
+          "title": "Auth & Onboarding",
+          "items": [
+            "AUTH-001: Login & Sign up",
+            "AUTH-002: Profile setup",
+            "AUTH-003: Privacy preferences"
+          ]
+        },
+        "portal": {
+          "title": "UC-003: Date Portal",
+          "items": [
+            "UC003-001: Portal home",
+            "UC003-002: AI suggestions",
+            "UC003-003: Experience journal"
+          ]
+        },
+        "canvas": {
+          "title": "UC-005: Date Canvas",
+          "items": [
+            "UC005-001: Date Canvas"
+          ]
+        }
+      },
+      "description": "Synthesised from documentation and prototypes to map the experience across key use cases."
+    }
+  },
+  "dashboard": {
+    "welcome": {
+      "title": "Welcome back, {name}",
+      "subtitle": "Let's turn today into another memorable date"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "items": {
+        "aiPlanning": {
+          "title": "AI Plan",
+          "description": "Spin up a new itinerary"
+        },
+        "mediation": {
+          "title": "AI Mediation",
+          "description": "Untangle relationship blockers"
+        },
+        "canvas": {
+          "title": "Date Canvas",
+          "description": "Log memories visually"
+        },
+        "billing": {
+          "title": "Billing",
+          "description": "Review plans & billing"
+        }
+      }
+    },
+    "currentPlans": {
+      "title": "Active Date Plans",
+      "viewAll": "View all"
+    },
+    "relationshipHealth": {
+      "title": "Relationship Health",
+      "scoreLabel": "This week",
+      "trend": "vs last week {value}%"
+    },
+    "notifications": {
+      "title": "Latest Updates",
+      "action": "View details"
+    },
+    "actions": {
+      "newPlan": "New plan",
+      "viewPlans": "All plans"
+    },
+    "planStatuses": {
+      "active": "Live",
+      "draft": "Draft",
+      "archived": "Archived"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to CouplePlan",
+      "subtitle": "AI keeps your shared experiences flowing",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "rememberMe": "Stay signed in",
+      "submit": "Sign in",
+      "signupHint": "New to CouplePlan?",
+      "signupLink": "Create account",
+      "forgotPassword": "Forgot password?"
+    }
+  }
+}

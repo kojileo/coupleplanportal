@@ -1,0 +1,3 @@
+Failed to proxy http://localhost:3123/ja [Error: socket hang up] { code: 'ECONNRESET' }
+[Error: socket hang up] { code: 'ECONNRESET' }
+^C^C
