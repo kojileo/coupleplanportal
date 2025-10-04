@@ -26,12 +26,14 @@
 - **インタラクティブ機能**: タブ、モーダル、フォーム、フィルターなどの動的要素
 
 ### 🚧 進行中
+- **Supabase準備**: データベース・認証・ストレージ設定
+- **認証機能統合**: Supabase Auth との連携実装完了
 - **API統合**: バックエンドとの連携
 - **テスト実装**: ユニットテスト、統合テスト
-- **パフォーマンス最適化**: 画像最適化、コード分割
 
 ### 📋 未着手
-- **本番デプロイ**: Vercel + AWS ECS
+- **外部サービス統合**: OpenAI API、Stripe連携
+- **本番デプロイ**: Vercel + Supabase
 - **監視・ログ**: エラー追跡、パフォーマンス監視
 
 ## 2. タイムライン (更新版)
@@ -42,7 +44,10 @@
 | Sprint 2 (UC001/UC002) | 10/28 - 11/08 | FE/AI | プラン生成・共同編集、リアルタイム同期 PoC | ✅ 完了 |
 | Sprint 3 (UC003/UC004) | 11/11 - 11/22 | FE/BE | ポータル、仲裁フロー、AI連携強化 | ✅ 完了 |
 | Sprint 4 (UC005/UC007) | 11/25 - 12/06 | FE/Growth | Date Canvas、課金管理、Stripe 連携 | ✅ 完了 |
-| Hardening | 12/09 - 12/20 | QA/All | バグ修正、パフォーマンス改善、リリース判定 | 🚧 進行中 |
+| Sprint 5 (Supabase準備) | 01/27 - 02/17 | BE | データベース・認証・ストレージ設定 | 🚧 進行中 |
+| Sprint 6 (API統合) | 02/20 - 03/13 | FE/BE | フロントエンド・バックエンド統合 | 📋 未着手 |
+| Sprint 7 (外部サービス) | 03/16 - 03/27 | BE | OpenAI・Stripe・通知統合 | 📋 未着手 |
+| Hardening | 03/30 - 04/10 | QA/All | バグ修正、パフォーマンス改善、リリース判定 | 📋 未着手 |
 
 ### 現在の進捗 (2025年1月27日)
 - **Sprint 1**: 100% 完了 (認証・共通系画面)
@@ -50,6 +55,7 @@
 - **Sprint 3**: 100% 完了 (UC003・UC004系画面)
 - **Sprint 4**: 100% 完了 (UC005・UC007系画面)
 - **フロントエンド実装**: 100% 完了 (全34画面)
+- **Sprint 5**: 0% 開始 (Supabase準備)
 
 ## 3. 技術スタック (実装済み)
 - **Frontend**: Next.js 15 + TypeScript + Tailwind CSS ✅
@@ -62,10 +68,12 @@
 - **Accessibility**: キーボードナビゲーション、スクリーンリーダー対応 ✅
 
 ### 未実装 (今後の予定)
-- **Backend**: FastAPI + PostgreSQL + Redis
-- **AI Integration**: LangChain + OpenAI API
-- **Realtime**: Supabase Realtime or Ably (UC002/UC005)
-- **Infrastructure**: Vercel (FE), AWS ECS (BE), RDS, S3, CloudFront, Stripe
+- **Backend**: Supabase (認証・DB・ストレージ・Realtime統合)
+- **AI Integration**: OpenAI API (使用量ベース)
+- **課金**: Stripe (手数料のみ)
+- **監視**: Sentry (無料枠)
+- **Infrastructure**: Vercel (FE) + Supabase (BE)
+- **コスト**: 月額$35-75 (従来の1/3)
 
 ## 4. 主要タスク (実装状況)
 ### 4.1 共通 ✅ 完了
@@ -75,13 +83,15 @@
 - [x] 全34画面のフロントエンド実装完了
 - [ ] i18n フレームワーク (next-intl) の導入
 
-### 4.2 認証 ✅ 完了 (フロントエンド)
+### 4.2 認証 ✅ 完了
 - [x] ログイン・アカウント作成画面 (AUTH-001)
 - [x] プロフィール設定画面 (AUTH-002)
 - [x] プライバシー設定画面 (AUTH-003)
 - [x] パートナー連携設定画面 (AUTH-004)
-- [ ] Supabase Auth を用いたメールリンクログイン
-- [ ] プロフィール画像アップロード (S3 + presigned URL)
+- [x] Supabase Auth を用いたメールリンクログイン
+- [x] 認証状態管理 (AuthContext)
+- [x] エラーハンドリングとローディング状態
+- [ ] プロフィール画像アップロード (Supabase Storage)
 - [ ] パートナー招待コード生成
 
 ### 4.3 プラン生成/共同編集 ✅ 完了 (フロントエンド)
@@ -124,8 +134,16 @@
 - [x] 課金指標分析画面 (UC007-004)
 - [x] サブスクリプション管理画面 (UC007-005)
 - [ ] Stripe Customer Portal 連携
-- [ ] 任意課金アラートの通知設定 (メール + Slack Webhook)
-- [ ] 売上ダッシュボードは BigQuery + Looker Studio Embedding を検討
+- [ ] 任意課金アラートの通知設定 (Supabase Auth + Slack Webhook)
+- [ ] 売上ダッシュボード (Supabase Analytics)
+
+### 4.7 Supabase準備 🚧 進行中
+- [x] プロジェクト作成・環境設定
+- [x] 認証・RLS設定
+- [x] フロントエンド連携 (認証機能)
+- [ ] データベーススキーマ設計・実装
+- [ ] ストレージ・Realtime設定
+- [ ] API統合・フロントエンド連携 (残り機能)
 
 ## 5. リリースノート雛形
 ```

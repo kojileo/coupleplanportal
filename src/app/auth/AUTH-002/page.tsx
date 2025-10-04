@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
+import { useRouter } from 'next/navigation'
 
 export default function Auth002Page() {
   const [formData, setFormData] = useState({
@@ -21,7 +23,12 @@ export default function Auth002Page() {
   })
 
   const [currentStep, setCurrentStep] = useState(1)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const totalSteps = 3
+
+  const { updateProfile } = useAuth()
+  const router = useRouter()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -52,10 +59,39 @@ export default function Auth002Page() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Profile submitted:', formData)
-    // 次のステップまたは完了処理
+    setLoading(true)
+    setError(null)
+
+    try {
+      // プロフィール情報をSupabaseに保存
+      const { error } = await updateProfile({
+        nickname: formData.nickname,
+        age: formData.age,
+        gender: formData.gender,
+        location: formData.location,
+        interests: formData.interests,
+        budget: formData.budget,
+        timePreference: formData.timePreference,
+        partnerName: formData.partnerName,
+        partnerAge: formData.partnerAge,
+        partnerGender: formData.partnerGender,
+        relationshipLength: formData.relationshipLength,
+        sharedInterests: formData.sharedInterests
+      })
+
+      if (error) {
+        setError('プロフィールの保存に失敗しました。')
+      } else {
+        // プロフィール設定完了後、プライバシー設定画面に遷移
+        router.push('/auth/AUTH-003')
+      }
+    } catch (err) {
+      setError('予期しないエラーが発生しました。')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const nextStep = () => {
@@ -119,6 +155,14 @@ export default function Auth002Page() {
               <div className="stepper-label">パートナー情報</div>
             </div>
           </div>
+
+          {/* エラーメッセージ */}
+          {error && (
+            <div className="error-message">
+              <i className="fas fa-exclamation-circle"></i>
+              {error}
+            </div>
+          )}
 
           {/* フォーム */}
           <div className="form-container">
@@ -402,9 +446,9 @@ export default function Auth002Page() {
                     <i className="fas fa-arrow-right"></i>
                   </button>
                 ) : (
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-primary" disabled={loading}>
                     <i className="fas fa-check"></i>
-                    完了
+                    {loading ? '保存中...' : '完了'}
                   </button>
                 )}
               </div>

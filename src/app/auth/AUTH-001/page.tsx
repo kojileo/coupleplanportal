@@ -2,10 +2,14 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
+import { useRouter } from 'next/navigation'
 
 export default function Auth001Page() {
   const [isLogin, setIsLogin] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -16,10 +20,50 @@ export default function Auth001Page() {
     newsletter: false
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { signIn, signUp } = useAuth()
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // フォーム送信処理
-    console.log('Form submitted:', formData)
+    setLoading(true)
+    setError(null)
+
+    try {
+      if (isLogin) {
+        // ログイン処理
+        const { error } = await signIn(formData.email, formData.password)
+        if (error) {
+          setError('ログインに失敗しました。メールアドレスとパスワードを確認してください。')
+        } else {
+          router.push('/common/COMMON-001')
+        }
+      } else {
+        // アカウント作成処理
+        if (formData.password !== formData.confirmPassword) {
+          setError('パスワードが一致しません。')
+          return
+        }
+        if (!formData.terms) {
+          setError('利用規約に同意してください。')
+          return
+        }
+
+        const { error } = await signUp(formData.email, formData.password, {
+          name: formData.name,
+          newsletter: formData.newsletter
+        })
+        if (error) {
+          setError('アカウント作成に失敗しました。メールアドレスが既に使用されている可能性があります。')
+        } else {
+          setError(null)
+          alert('確認メールを送信しました。メール内のリンクをクリックしてアカウントを有効化してください。')
+        }
+      }
+    } catch (err) {
+      setError('予期しないエラーが発生しました。')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,6 +114,14 @@ export default function Auth001Page() {
                 アカウント作成
               </button>
             </div>
+
+            {/* エラーメッセージ */}
+            {error && (
+              <div className="error-message">
+                <i className="fas fa-exclamation-circle"></i>
+                {error}
+              </div>
+            )}
 
             {/* ログインフォーム */}
             {isLogin ? (
@@ -126,9 +178,9 @@ export default function Auth001Page() {
                     <a href="#" className="forgot-password">パスワードを忘れた方</a>
                   </div>
                   
-                  <button type="submit" className="btn btn-primary btn-large">
+                  <button type="submit" className="btn btn-primary btn-large" disabled={loading}>
                     <i className="fas fa-sign-in-alt"></i>
-                    ログイン
+                    {loading ? 'ログイン中...' : 'ログイン'}
                   </button>
                 </form>
                 
@@ -251,9 +303,9 @@ export default function Auth001Page() {
                     </label>
                   </div>
                   
-                  <button type="submit" className="btn btn-primary btn-large">
+                  <button type="submit" className="btn btn-primary btn-large" disabled={loading}>
                     <i className="fas fa-user-plus"></i>
-                    アカウント作成
+                    {loading ? '作成中...' : 'アカウント作成'}
                   </button>
                 </form>
                 
